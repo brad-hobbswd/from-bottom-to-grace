@@ -2,7 +2,7 @@
    FROM THE BOTTOM TO GRACE
    Bradley Hobbs
    Complete Global Stylesheet
-   Homepage + Chapter Pages
+   Homepage + Chapters + Author + Book Resources + Legal
    ========================================================= */
 
 
@@ -112,7 +112,6 @@ textarea {
     sans-serif;
 
   --max-width: 1180px;
-
   --reading-width: 790px;
 }
 
@@ -155,6 +154,10 @@ strong {
   color: var(--white);
 }
 
+em {
+  color: inherit;
+}
+
 
 /* =========================================================
    4. CONTAINER
@@ -171,7 +174,24 @@ strong {
 
 
 /* =========================================================
-   5. SITE HEADER
+   5. MAIN
+   ========================================================= */
+
+main {
+  position: relative;
+}
+
+section {
+  position: relative;
+}
+
+section[id] {
+  scroll-margin-top: 25px;
+}
+
+
+/* =========================================================
+   6. SITE HEADER
    ========================================================= */
 
 .site-header {
@@ -187,7 +207,7 @@ strong {
   background:
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.78),
+      rgba(0, 0, 0, 0.82),
       rgba(0, 0, 0, 0)
     );
 
@@ -195,7 +215,7 @@ strong {
     1px solid rgba(255, 255, 255, 0.04);
 }
 
-.navigation {
+.header-inner {
   min-height: 92px;
 
   display: flex;
@@ -208,38 +228,133 @@ strong {
 
 
 /* =========================================================
-   6. SITE LOGO
+   7. SITE LOGO
    ========================================================= */
 
 .site-logo {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
   font-family: var(--serif);
 
-  font-size: 1.45rem;
-  font-weight: 500;
-
-  letter-spacing: 0.02em;
-
   color: var(--white);
-
-  white-space: nowrap;
 
   transition:
     color 0.25s ease,
     opacity 0.25s ease;
 }
 
-.site-logo span {
+.site-logo:hover {
   color: var(--gold-light);
 }
 
-.site-logo:hover {
+.logo-main {
+  font-size: 1.35rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  color: var(--white);
+}
+
+.logo-sub {
+  max-width: 360px;
+
+  font-family: var(--sans);
+
+  font-size: 0.48rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+
+  line-height: 1.4;
+
+  text-transform: uppercase;
+
   color: var(--gold-light);
 }
 
 
 /* =========================================================
-   7. MAIN NAVIGATION
+   8. MAIN NAVIGATION
    ========================================================= */
+
+.site-nav {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 28px;
+}
+
+.site-nav a {
+  position: relative;
+
+  padding: 10px 0;
+
+  font-family: var(--sans);
+
+  font-size: 0.68rem;
+
+  font-weight: 600;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(255, 250, 242, 0.82);
+
+  transition:
+    color 0.25s ease;
+}
+
+.site-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 2px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--gold-light);
+
+  transition:
+    width 0.3s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--gold-light);
+}
+
+.site-nav a:hover::after,
+.site-nav a.active::after {
+  width: 100%;
+}
+
+
+/* Compatibility with older homepage class names */
+
+.navigation {
+  min-height: 92px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
 
 .main-navigation {
   display: flex;
@@ -298,8 +413,7 @@ strong {
 
 
 /* =========================================================
-   8. HOMEPAGE HERO
-   Complete Book Artwork
+   9. HOMEPAGE HERO
    ========================================================= */
 
 .hero {
@@ -333,7 +447,7 @@ strong {
 
 
 /* =========================================================
-   9. HOMEPAGE HERO OVERLAY
+   10. HOMEPAGE HERO OVERLAY
    ========================================================= */
 
 .hero-overlay {
@@ -357,7 +471,7 @@ strong {
 
 
 /* =========================================================
-   10. HOMEPAGE HERO CONTENT
+   11. HOMEPAGE HERO CONTENT
    ========================================================= */
 
 .hero-content {
@@ -382,12 +496,6 @@ strong {
   align-items: flex-start;
 }
 
-
-/*
-   Title, subtitle and author are already contained
-   inside the uploaded artwork.
-*/
-
 .hero-kicker,
 .hero h1,
 .hero-subtitle,
@@ -397,7 +505,7 @@ strong {
 
 
 /* =========================================================
-   11. HERO BUTTONS
+   12. HERO BUTTONS
    ========================================================= */
 
 .hero-buttons {
@@ -412,7 +520,7 @@ strong {
 
 
 /* =========================================================
-   12. BUTTON SYSTEM
+   13. BUTTON SYSTEM
    ========================================================= */
 
 .button {
@@ -433,6 +541,7 @@ strong {
   font-family: var(--sans);
 
   font-size: 0.7rem;
+
   font-weight: 700;
 
   letter-spacing: 0.16em;
@@ -452,11 +561,6 @@ strong {
 .button:hover {
   transform: translateY(-2px);
 }
-
-
-/* =========================================================
-   13. GOLD BUTTON
-   ========================================================= */
 
 .button-gold {
   background: var(--gold);
@@ -478,11 +582,6 @@ strong {
     0 15px 40px rgba(0, 0, 0, 0.35);
 }
 
-
-/* =========================================================
-   14. OUTLINE BUTTON
-   ========================================================= */
-
 .button-outline {
   background:
     rgba(0, 0, 0, 0.32);
@@ -501,6 +600,43 @@ strong {
   color: var(--black);
 
   border-color: var(--gold);
+}
+
+
+/* =========================================================
+   14. GENERAL TEXT LINKS
+   ========================================================= */
+
+.text-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 20px;
+
+  font-family: var(--sans);
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light);
+
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.text-link:hover {
+  color: var(--white);
+
+  gap: 17px;
 }
 
 
@@ -538,17 +674,13 @@ strong {
   background: #080705;
 }
 
-
-/* =========================================================
-   16. SECTION KICKER
-   ========================================================= */
-
 .section-kicker {
   margin-bottom: 18px;
 
   font-family: var(--sans);
 
   font-size: 0.68rem;
+
   font-weight: 700;
 
   letter-spacing: 0.25em;
@@ -557,47 +689,6 @@ strong {
 
   color: var(--gold-light);
 }
-
-
-/* =========================================================
-   17. GENERAL TEXT LINKS
-   ========================================================= */
-
-.text-link {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  margin-top: 20px;
-
-  font-family: var(--sans);
-
-  font-size: 0.72rem;
-  font-weight: 700;
-
-  letter-spacing: 0.13em;
-
-  text-transform: uppercase;
-
-  color: var(--gold-light);
-
-  transition:
-    color 0.25s ease,
-    gap 0.25s ease;
-}
-
-.text-link:hover {
-  color: var(--white);
-
-  gap: 17px;
-}
-
-
-/* =========================================================
-   18. GOLD TEXT
-   ========================================================= */
 
 .gold-text {
   color: var(--gold-light);
@@ -609,9 +700,13 @@ strong {
   line-height: 1.45;
 }
 
+.gold {
+  color: var(--gold-light);
+}
+
 
 /* =========================================================
-   19. STORY INTRODUCTION
+   16. STORY INTRODUCTION
    ========================================================= */
 
 .story-introduction {
@@ -649,11 +744,6 @@ strong {
 
   color: var(--cream-soft);
 }
-
-
-/* =========================================================
-   20. STORY QUOTE
-   ========================================================= */
 
 .story-quote {
   position: relative;
@@ -702,11 +792,6 @@ strong {
 
   opacity: 0.7;
 }
-
-
-/* =========================================================
-   21. STORY HIGHLIGHT
-   ========================================================= */
 
 .story-highlight {
   position: relative;
@@ -757,6 +842,7 @@ strong {
   font-family: var(--sans);
 
   font-size: 0.64rem;
+
   font-weight: 700;
 
   letter-spacing: 0.22em;
@@ -785,7 +871,7 @@ strong {
 
 
 /* =========================================================
-   22. TWO COLUMN SECTIONS
+   17. TWO COLUMN / REDEMPTION / AUTHOR
    ========================================================= */
 
 .two-column {
@@ -842,9 +928,110 @@ strong {
   line-height: 1.9;
 }
 
+.redemption-section {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.8fr)
+    minmax(0, 1.2fr);
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.redemption-heading {
+  position: relative;
+
+  padding-left: 30px;
+}
+
+.redemption-heading::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 2px;
+  height: 110px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--gold),
+      rgba(199, 161, 90, 0)
+    );
+}
+
+.redemption-heading h2 {
+  max-width: 520px;
+
+  font-size:
+    clamp(2.8rem, 5vw, 4.7rem);
+}
+
+.redemption-copy {
+  max-width: 700px;
+}
+
+.redemption-copy p {
+  margin-bottom: 25px;
+
+  font-size: 1.02rem;
+
+  line-height: 1.9;
+}
+
+.large-gold-text {
+  margin:
+    42px
+    0
+    30px !important;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(3rem, 6vw, 5.8rem) !important;
+
+  line-height: 0.95 !important;
+
+  color: var(--gold-light) !important;
+}
+
+.author-section {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.75fr)
+    minmax(0, 1.25fr);
+
+  gap: 100px;
+
+  align-items: center;
+}
+
+.author-section h2 {
+  font-size:
+    clamp(3rem, 5vw, 5rem);
+}
+
+.author-section > div:last-child {
+  max-width: 650px;
+}
+
+.author-section > div:last-child p {
+  margin-bottom: 30px;
+
+  font-size: 1rem;
+
+  line-height: 1.9;
+}
+
 
 /* =========================================================
-   23. CHAPTER SECTION HEADING
+   18. SECTION HEADINGS
    ========================================================= */
 
 .section-heading {
@@ -885,7 +1072,7 @@ strong {
 
 
 /* =========================================================
-   24. CHAPTER GRID
+   19. CHAPTER GRID
    ========================================================= */
 
 .chapter-grid {
@@ -896,11 +1083,6 @@ strong {
 
   gap: 24px;
 }
-
-
-/* =========================================================
-   25. CHAPTER CARD
-   ========================================================= */
 
 .chapter-card {
   position: relative;
@@ -997,6 +1179,7 @@ strong {
   font-family: var(--sans);
 
   font-size: 0.64rem;
+
   font-weight: 700;
 
   letter-spacing: 0.23em;
@@ -1039,124 +1222,7 @@ strong {
 
 
 /* =========================================================
-   26. REDEMPTION SECTION
-   ========================================================= */
-
-.redemption-section {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.8fr)
-    minmax(0, 1.2fr);
-
-  gap: 100px;
-
-  align-items: start;
-}
-
-.redemption-heading {
-  position: relative;
-
-  padding-left: 30px;
-}
-
-.redemption-heading::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 2px;
-  height: 110px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      var(--gold),
-      rgba(199, 161, 90, 0)
-    );
-}
-
-.redemption-heading h2 {
-  max-width: 520px;
-
-  font-size:
-    clamp(2.8rem, 5vw, 4.7rem);
-}
-
-.redemption-copy {
-  max-width: 700px;
-}
-
-.redemption-copy p {
-  margin-bottom: 25px;
-
-  font-size: 1.02rem;
-
-  line-height: 1.9;
-}
-
-.large-gold-text {
-  margin:
-    42px
-    0
-    30px !important;
-
-  font-family: var(--serif);
-
-  font-size:
-    clamp(3rem, 6vw, 5.8rem) !important;
-
-  line-height: 0.95 !important;
-
-  color: var(--gold-light) !important;
-}
-
-
-/* =========================================================
-   27. SUBTLE SECTION DIVIDERS
-   ========================================================= */
-
-.section-warm + .section-dark,
-.section-dark + .section-warm,
-.section-black + .section-warm {
-  border-top:
-    1px solid rgba(255, 255, 255, 0.035);
-}
-
-
-/* =========================================================
-   28. STORY DECORATION
-   ========================================================= */
-
-.story-introduction::after {
-  content: "";
-
-  position: absolute;
-
-  width: 400px;
-  height: 400px;
-
-  right: -250px;
-  top: 20%;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(199, 161, 90, 0.07),
-      transparent 68%
-    );
-
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   29. FAITH BANNER
+   20. FAITH BANNER
    ========================================================= */
 
 .faith-banner {
@@ -1191,11 +1257,6 @@ strong {
   isolation: isolate;
 }
 
-
-/* =========================================================
-   30. FAITH OVERLAY
-   ========================================================= */
-
 .faith-overlay {
   position: absolute;
 
@@ -1218,11 +1279,6 @@ strong {
   pointer-events: none;
 }
 
-
-/* =========================================================
-   31. FAITH CONTENT
-   ========================================================= */
-
 .faith-content {
   position: relative;
 
@@ -1239,11 +1295,6 @@ strong {
 .faith-content .section-kicker {
   margin-bottom: 30px;
 }
-
-
-/* =========================================================
-   32. FAITH QUOTE
-   ========================================================= */
 
 .faith-content blockquote {
   position: relative;
@@ -1286,15 +1337,11 @@ strong {
   opacity: 0.75;
 }
 
-
-/* =========================================================
-   33. SCRIPTURE CITATION
-   ========================================================= */
-
 .faith-content cite {
   font-family: var(--sans);
 
   font-size: 0.72rem;
+
   font-weight: 700;
 
   font-style: normal;
@@ -1308,7 +1355,7 @@ strong {
 
 
 /* =========================================================
-   34. FINAL MESSAGE
+   21. FINAL MESSAGE
    ========================================================= */
 
 .final-message {
@@ -1382,11 +1429,6 @@ strong {
   color: var(--cream-soft);
 }
 
-
-/* =========================================================
-   35. FINAL MESSAGE LINES
-   ========================================================= */
-
 .final-line {
   margin-top: 22px;
 
@@ -1408,42 +1450,7 @@ strong {
 
 
 /* =========================================================
-   36. AUTHOR SECTION
-   ========================================================= */
-
-.author-section {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 0.75fr)
-    minmax(0, 1.25fr);
-
-  gap: 100px;
-
-  align-items: center;
-}
-
-.author-section h2 {
-  font-size:
-    clamp(3rem, 5vw, 5rem);
-}
-
-.author-section > div:last-child {
-  max-width: 650px;
-}
-
-.author-section > div:last-child p {
-  margin-bottom: 30px;
-
-  font-size: 1rem;
-
-  line-height: 1.9;
-}
-
-
-/* =========================================================
-   37. CHAPTER PAGE
-   CHAPTER HERO
+   22. CHAPTER HERO
    ========================================================= */
 
 .chapter-hero {
@@ -1476,9 +1483,6 @@ strong {
   isolation: isolate;
 }
 
-
-/* Decorative glow */
-
 .chapter-hero::before {
   content: "";
 
@@ -1502,9 +1506,6 @@ strong {
   pointer-events: none;
 }
 
-
-/* Gold vertical line */
-
 .chapter-hero::after {
   content: "";
 
@@ -1527,10 +1528,22 @@ strong {
   opacity: 0.55;
 }
 
+.chapter-hero-overlay {
+  position: absolute;
 
-/* =========================================================
-   38. CHAPTER HERO CONTENT
-   ========================================================= */
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(199, 161, 90, 0.05),
+      transparent 55%
+    );
+
+  pointer-events: none;
+}
 
 .chapter-hero-content {
   position: relative;
@@ -1541,14 +1554,26 @@ strong {
   padding-bottom: 105px;
 }
 
-.chapter-hero-content .section-kicker {
-  margin-bottom: 24px;
+.chapter-number {
+  margin-bottom: 25px;
+
+  font-family: var(--sans);
+
+  font-size: 0.64rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.23em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light);
 }
 
 .chapter-hero h1 {
   max-width: 900px;
 
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 
   font-size:
     clamp(3.7rem, 8vw, 7.5rem);
@@ -1558,28 +1583,59 @@ strong {
   color: var(--white);
 }
 
-.chapter-hero h1 span {
-  display: block;
+.chapter-hero-description {
+  max-width: 700px;
 
-  color: var(--gold-light);
-}
-
-.chapter-introduction {
-  max-width: 680px;
+  margin-top: 25px;
 
   font-family: var(--serif);
 
   font-size:
-    clamp(1.35rem, 2.5vw, 1.9rem);
+    clamp(1.3rem, 2.5vw, 1.8rem);
 
-  line-height: 1.55;
+  line-height: 1.45;
 
   color: var(--cream-soft);
 }
 
+.chapter-hero-divider {
+  width: 90px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent
+    );
+}
+
 
 /* =========================================================
-   39. CHAPTER CONTENT
+   23. CHAPTER INTRODUCTION
+   ========================================================= */
+
+.chapter-introduction {
+  background:
+    linear-gradient(
+      135deg,
+      #211812 0%,
+      #302117 48%,
+      #1b130e 100%
+    );
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.035);
+}
+
+.chapter-introduction .chapter-reading {
+  padding-top: 105px;
+  padding-bottom: 80px;
+}
+
+
+/* =========================================================
+   24. CHAPTER CONTENT
    ========================================================= */
 
 .chapter-content {
@@ -1599,7 +1655,7 @@ strong {
 
 
 /* =========================================================
-   40. CHAPTER READING AREA
+   25. CHAPTER READING AREA
    ========================================================= */
 
 .chapter-reading {
@@ -1611,11 +1667,6 @@ strong {
   padding-top: 105px;
   padding-bottom: 120px;
 }
-
-
-/* =========================================================
-   41. CHAPTER PARAGRAPHS
-   ========================================================= */
 
 .chapter-reading > p {
   margin-bottom: 27px;
@@ -1633,11 +1684,6 @@ strong {
 .chapter-reading > p:last-child {
   margin-bottom: 0;
 }
-
-
-/* =========================================================
-   42. CHAPTER OPENING
-   ========================================================= */
 
 .chapter-reading .chapter-opening {
   position: relative;
@@ -1673,7 +1719,7 @@ strong {
 
 
 /* =========================================================
-   43. CHAPTER REFLECTION
+   26. CHAPTER REFLECTION
    ========================================================= */
 
 .chapter-reflection {
@@ -1704,8 +1750,22 @@ strong {
     0 20px 55px rgba(0, 0, 0, 0.20);
 }
 
-.chapter-reflection .section-kicker {
+.reflection-label {
   margin-bottom: 15px;
+
+  font-family: var(--sans) !important;
+
+  font-size: 0.62rem !important;
+
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+
+  line-height: 1.4 !important;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light) !important;
 }
 
 .chapter-reflection p:last-child {
@@ -1721,7 +1781,7 @@ strong {
 
 
 /* =========================================================
-   44. CHAPTER EMPHASIS
+   27. CHAPTER EMPHASIS
    ========================================================= */
 
 .chapter-reading > .chapter-emphasis {
@@ -1747,7 +1807,58 @@ strong {
 
 
 /* =========================================================
-   45. WORSHIPPER SECTION
+   28. CHAPTER EMPHASIS BLOCK
+   ========================================================= */
+
+.chapter-emphasis-block {
+  position: relative;
+
+  margin:
+    60px
+    0;
+
+  padding:
+    42px
+    35px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(199, 161, 90, 0.10),
+      rgba(74, 51, 35, 0.18)
+    );
+
+  border-top:
+    1px solid rgba(199, 161, 90, 0.32);
+
+  border-bottom:
+    1px solid rgba(199, 161, 90, 0.20);
+}
+
+.chapter-emphasis-block p {
+  margin-bottom: 10px;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(1.8rem, 3vw, 2.7rem);
+
+  line-height: 1.25;
+
+  color: var(--white);
+}
+
+.chapter-emphasis-block p:last-child {
+  margin-bottom: 0;
+
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   29. WORSHIPPER SECTION
    ========================================================= */
 
 .worshipper-section {
@@ -1803,9 +1914,53 @@ strong {
   opacity: 0.38;
 }
 
-.worshipper-section .section-kicker {
-  margin-bottom: 32px;
+.worshipper-label {
+  position: relative;
+
+  z-index: 2;
+
+  margin-bottom: 28px;
+
+  font-family: var(--sans) !important;
+
+  font-size: 0.62rem !important;
+
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+
+  line-height: 1.4 !important;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light) !important;
 }
+
+.worshipper-line {
+  position: relative;
+
+  z-index: 2;
+
+  margin-bottom: 14px;
+
+  font-family: var(--serif) !important;
+
+  font-size:
+    clamp(1.65rem, 3vw, 2.5rem) !important;
+
+  line-height: 1.3 !important;
+
+  color: var(--white) !important;
+}
+
+.worshipper-line:last-child {
+  margin-bottom: 0;
+
+  color: var(--gold-light) !important;
+}
+
+
+/* Compatibility if older chapter HTML uses blockquote */
 
 .worshipper-section blockquote {
   max-width: 650px;
@@ -1834,7 +1989,7 @@ strong {
 
 
 /* =========================================================
-   46. CHAPTER CONCLUSION
+   30. CHAPTER CONCLUSION
    ========================================================= */
 
 .chapter-conclusion {
@@ -1872,42 +2027,65 @@ strong {
     );
 }
 
-.chapter-conclusion .section-kicker {
-  margin-bottom: 22px;
-}
-
-.chapter-conclusion h2 {
-  max-width: 700px;
-
-  margin:
-    0
-    auto
-    22px;
-
-  font-size:
-    clamp(2.6rem, 5vw, 4.6rem);
-
-  color: var(--white);
-}
-
-.chapter-conclusion p:last-child {
-  max-width: 650px;
-
-  margin-inline: auto;
+.chapter-conclusion p {
+  margin-bottom: 18px;
 
   font-family: var(--serif);
 
   font-size:
-    clamp(1.35rem, 2.5vw, 1.85rem);
+    clamp(1.45rem, 2.5vw, 2rem);
 
   line-height: 1.5;
 
-  color: var(--gold-light);
+  color: var(--cream-soft);
+}
+
+.chapter-conclusion p:last-child {
+  margin-bottom: 0;
+}
+
+.conclusion-divider {
+  width: 70px;
+  height: 1px;
+
+  margin:
+    32px
+    auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+.conclusion-line {
+  margin-bottom: 15px;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(1.8rem, 3vw, 2.7rem);
+
+  color: var(--white);
+}
+
+.conclusion-final {
+  font-family: var(--serif) !important;
+
+  font-size:
+    clamp(1.65rem, 3vw, 2.4rem) !important;
+
+  line-height: 1.3 !important;
+
+  color: var(--gold-light) !important;
 }
 
 
 /* =========================================================
-   47. CHAPTER NAVIGATION
+   31. CHAPTER NAVIGATION
    ========================================================= */
 
 .chapter-navigation {
@@ -1960,12 +2138,14 @@ strong {
   transform: translateY(-2px);
 }
 
-.chapter-nav-link strong {
+.chapter-nav-title {
   font-family: var(--serif);
 
   font-size: 1.5rem;
 
   font-weight: 500;
+
+  line-height: 1.2;
 
   color: var(--cream);
 }
@@ -1974,6 +2154,7 @@ strong {
   font-family: var(--sans);
 
   font-size: 0.6rem;
+
   font-weight: 700;
 
   letter-spacing: 0.2em;
@@ -1983,7 +2164,7 @@ strong {
   color: var(--gold-light);
 }
 
-.chapter-next {
+.chapter-nav-next {
   align-items: flex-end;
 
   text-align: right;
@@ -1994,11 +2175,12 @@ strong {
 
   align-items: center;
 
-  gap: 10px;
+  gap: 15px;
 
   font-family: var(--sans);
 
   font-size: 0.58rem;
+
   font-weight: 600;
 
   letter-spacing: 0.13em;
@@ -2010,13 +2192,477 @@ strong {
   white-space: nowrap;
 }
 
+.chapter-nav-home {
+  color: #81766b;
+
+  transition: color 0.25s ease;
+}
+
+.chapter-nav-home:hover {
+  color: var(--gold-light);
+}
+
 .chapter-nav-divider {
-  color: var(--gold-dark);
+  display: block;
+
+  width: 35px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold-dark)
+    );
+}
+
+.chapter-nav-center .chapter-nav-divider:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold-dark),
+      transparent
+    );
 }
 
 
 /* =========================================================
-   48. FOOTER
+   32. AUTHOR / SUPPORTING PAGE HERO
+   ========================================================= */
+
+.author-hero {
+  background:
+    radial-gradient(
+      circle at 25% 30%,
+      rgba(199, 161, 90, 0.13),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(74, 51, 35, 0.25),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #080604,
+      #1d140e 50%,
+      #090705
+    );
+}
+
+
+/* =========================================================
+   33. SUPPORTING PAGE SPECIAL STYLES
+   ========================================================= */
+
+.dedication-page {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(199, 161, 90, 0.06),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #211812,
+      #120d09
+    );
+}
+
+.dedication-reading {
+  text-align: center;
+}
+
+.dedication-reading p {
+  max-width: 680px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dedication-opening {
+  max-width: 720px !important;
+
+  font-family: var(--serif) !important;
+
+  font-size:
+    clamp(1.65rem, 3vw, 2.4rem) !important;
+
+  line-height: 1.45 !important;
+
+  color: var(--white) !important;
+}
+
+.dedication-divider {
+  width: 75px;
+  height: 1px;
+
+  margin:
+    55px
+    auto;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+.dedication-emphasis {
+  margin:
+    55px
+    auto !important;
+
+  font-family: var(--serif) !important;
+
+  font-size:
+    clamp(1.8rem, 3.5vw, 3rem) !important;
+
+  line-height: 1.3 !important;
+
+  color: var(--gold-light) !important;
+}
+
+.dedication-highlight {
+  margin:
+    65px
+    auto;
+}
+
+.dedication-conclusion {
+  max-width: 700px;
+
+  margin:
+    75px
+    auto
+    0;
+}
+
+.dedication-signature {
+  margin-top: 60px;
+
+  text-align: center;
+}
+
+.dedication-signature p {
+  margin-bottom: 3px !important;
+
+  font-family: var(--serif) !important;
+
+  font-size: 1.7rem !important;
+
+  color: var(--white) !important;
+}
+
+.dedication-signature span {
+  font-family: var(--sans);
+
+  font-size: 0.6rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   34. PUBLICATION PAGE
+   ========================================================= */
+
+.publication-details {
+  margin:
+    45px
+    0
+    65px;
+
+  border-top:
+    1px solid rgba(199, 161, 90, 0.22);
+
+  border-bottom:
+    1px solid rgba(199, 161, 90, 0.22);
+}
+
+.publication-detail {
+  display: grid;
+
+  grid-template-columns:
+    minmax(130px, 0.4fr)
+    minmax(0, 1fr);
+
+  gap: 30px;
+
+  padding:
+    20px
+    0;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.publication-detail:last-child {
+  border-bottom: 0;
+}
+
+.publication-label {
+  font-family: var(--sans);
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light);
+}
+
+.publication-value {
+  font-family: var(--serif);
+
+  font-size: 1.2rem;
+
+  line-height: 1.45;
+
+  color: var(--cream);
+}
+
+
+/* =========================================================
+   35. CONTACT PAGE
+   ========================================================= */
+
+.contact-details {
+  margin:
+    45px
+    0
+    65px;
+
+  padding:
+    5px
+    0;
+
+  border-top:
+    1px solid rgba(199, 161, 90, 0.22);
+
+  border-bottom:
+    1px solid rgba(199, 161, 90, 0.22);
+}
+
+.contact-detail {
+  display: grid;
+
+  grid-template-columns:
+    minmax(100px, 0.35fr)
+    minmax(0, 1fr);
+
+  gap: 30px;
+
+  align-items: center;
+
+  padding:
+    22px
+    0;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.contact-detail:last-child {
+  border-bottom: 0;
+}
+
+.contact-label {
+  font-family: var(--sans);
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light);
+}
+
+.contact-value {
+  font-family: var(--serif);
+
+  font-size: 1.25rem;
+
+  line-height: 1.4;
+
+  color: var(--cream);
+}
+
+.contact-email {
+  color: var(--gold-light);
+
+  transition: color 0.25s ease;
+}
+
+.contact-email:hover {
+  color: var(--white);
+}
+
+
+/* =========================================================
+   36. LEGAL PAGES
+   ========================================================= */
+
+.legal-page {
+  background:
+    linear-gradient(
+      180deg,
+      #211812 0%,
+      #17100c 45%,
+      #0e0b08 100%
+    );
+}
+
+.legal-page .chapter-reading {
+  max-width: 790px;
+}
+
+.legal-page h2 {
+  margin:
+    65px
+    0
+    20px;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(2rem, 4vw, 3rem);
+
+  line-height: 1.15;
+
+  color: var(--white);
+}
+
+.legal-page h2:first-of-type {
+  margin-top: 25px;
+}
+
+.legal-page .chapter-opening {
+  font-family: var(--sans) !important;
+
+  font-size: 0.68rem !important;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light) !important;
+}
+
+.legal-page a {
+  color: var(--gold-light);
+
+  text-decoration: underline;
+
+  text-decoration-color:
+    rgba(224, 194, 125, 0.35);
+
+  text-underline-offset: 4px;
+
+  transition: color 0.25s ease;
+}
+
+.legal-page a:hover {
+  color: var(--white);
+}
+
+.legal-contact {
+  margin-top: 65px;
+
+  padding-top: 35px;
+
+  border-top:
+    1px solid rgba(199, 161, 90, 0.20);
+}
+
+.legal-contact p {
+  font-family: var(--serif);
+
+  font-size: 1.05rem;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   37. 404 PAGE
+   ========================================================= */
+
+.error-navigation {
+  width: 100%;
+
+  min-height: 0;
+
+  margin:
+    65px
+    0;
+
+  padding:
+    35px
+    0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 15px;
+
+  border-top:
+    1px solid rgba(199, 161, 90, 0.20);
+
+  border-bottom:
+    1px solid rgba(199, 161, 90, 0.20);
+}
+
+.error-navigation .chapter-nav-link {
+  min-height: 105px;
+
+  justify-content: center;
+
+  padding:
+    18px
+    20px;
+
+  border:
+    1px solid rgba(199, 161, 90, 0.13);
+
+  background:
+    rgba(199, 161, 90, 0.035);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.error-navigation .chapter-nav-link:hover {
+  background:
+    rgba(199, 161, 90, 0.09);
+
+  border-color:
+    rgba(199, 161, 90, 0.42);
+}
+
+
+/* =========================================================
+   38. FOOTER
    ========================================================= */
 
 .site-footer {
@@ -2046,27 +2692,112 @@ strong {
     65px;
 }
 
-.footer-brand h3 {
-  margin-bottom: 14px;
 
-  font-size: 2.1rem;
+/* New footer structure */
+
+.footer-inner {
+  padding:
+    65px
+    0
+    0;
+}
+
+.footer-brand {
+  margin-bottom: 45px;
+}
+
+.footer-title {
+  margin-bottom: 12px;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(1.7rem, 3vw, 2.25rem);
+
+  line-height: 1.05;
+
+  letter-spacing: 0.04em;
 
   color: var(--white);
 }
 
-.footer-brand h3 span {
-  color: var(--gold-light);
-}
-
-.footer-brand p {
-  max-width: 380px;
+.footer-subtitle {
+  max-width: 480px;
 
   font-family: var(--serif);
 
-  font-size: 1.05rem;
+  font-size: 1rem;
+
+  line-height: 1.5;
 
   color: var(--muted);
 }
+
+.footer-links {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap:
+    45px
+    70px;
+
+  padding-bottom: 50px;
+}
+
+.footer-resource-group {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.footer-resource-title {
+  margin-bottom: 18px;
+
+  font-family: var(--sans);
+
+  font-size: 0.62rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light);
+}
+
+.footer-links a {
+  display: block;
+
+  width: fit-content;
+
+  margin-bottom: 9px;
+
+  font-family: var(--sans);
+
+  font-size: 0.78rem;
+
+  line-height: 1.5;
+
+  color: var(--muted);
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: var(--cream);
+
+  transform: translateX(3px);
+}
+
+
+/* Older footer columns remain supported */
 
 .footer-column {
   display: flex;
@@ -2082,6 +2813,7 @@ strong {
   font-family: var(--sans);
 
   font-size: 0.65rem;
+
   font-weight: 700;
 
   letter-spacing: 0.2em;
@@ -2113,7 +2845,7 @@ strong {
 
 
 /* =========================================================
-   49. FOOTER BOTTOM
+   39. FOOTER BOTTOM
    ========================================================= */
 
 .footer-bottom {
@@ -2144,63 +2876,42 @@ strong {
 
 
 /* =========================================================
-   50. GOLD UTILITY
+   40. SECTION DIVIDERS
    ========================================================= */
 
-.gold {
-  color: var(--gold-light);
+.section-warm + .section-dark,
+.section-dark + .section-warm,
+.section-black + .section-warm {
+  border-top:
+    1px solid rgba(255, 255, 255, 0.035);
+}
+
+.story-introduction::after {
+  content: "";
+
+  position: absolute;
+
+  width: 400px;
+  height: 400px;
+
+  right: -250px;
+  top: 20%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(199, 161, 90, 0.07),
+      transparent 68%
+    );
+
+  pointer-events: none;
 }
 
 
 /* =========================================================
-   51. MAIN
-   ========================================================= */
-
-main {
-  position: relative;
-}
-
-section {
-  position: relative;
-}
-
-section[id] {
-  scroll-margin-top: 25px;
-}
-
-
-/* =========================================================
-   52. LARGE SCREEN
-   ========================================================= */
-
-@media (min-width: 1400px) {
-
-  .hero-content {
-    padding-bottom: 60px;
-  }
-
-  .section {
-    padding-top: 145px;
-    padding-bottom: 145px;
-  }
-
-  .faith-banner {
-    min-height: 700px;
-  }
-
-  .chapter-hero {
-    min-height: 680px;
-  }
-
-  .chapter-reading {
-    padding-top: 125px;
-    padding-bottom: 145px;
-  }
-}
-
-
-/* =========================================================
-   53. TABLET
+   41. TABLET
    ========================================================= */
 
 @media (max-width: 1000px) {
@@ -2213,21 +2924,13 @@ section[id] {
       );
   }
 
-
-  /* Navigation */
-
-  .navigation {
-    min-height: 82px;
-
+  .header-inner {
     gap: 25px;
   }
 
-  .main-navigation {
+  .site-nav {
     gap: 20px;
   }
-
-
-  /* Story */
 
   .story-introduction {
     grid-template-columns: 1fr;
@@ -2241,9 +2944,6 @@ section[id] {
     margin-top: 0;
   }
 
-
-  /* Two Column */
-
   .two-column {
     grid-template-columns: 1fr;
 
@@ -2253,9 +2953,6 @@ section[id] {
   .two-column h2 {
     max-width: 800px;
   }
-
-
-  /* Chapters */
 
   .chapter-grid {
     grid-template-columns: 1fr;
@@ -2277,9 +2974,6 @@ section[id] {
     max-width: 650px;
   }
 
-
-  /* Redemption */
-
   .redemption-section {
     grid-template-columns: 1fr;
 
@@ -2290,17 +2984,11 @@ section[id] {
     max-width: 800px;
   }
 
-
-  /* Author */
-
   .author-section {
     grid-template-columns: 1fr;
 
     gap: 45px;
   }
-
-
-  /* Chapter Hero */
 
   .chapter-hero {
     min-height: 520px;
@@ -2311,9 +2999,6 @@ section[id] {
     padding-bottom: 85px;
   }
 
-
-  /* Chapter Reading */
-
   .chapter-reading {
     width:
       min(
@@ -2321,9 +3006,6 @@ section[id] {
         var(--reading-width)
       );
   }
-
-
-  /* Chapter Navigation */
 
   .chapter-navigation-inner {
     grid-template-columns:
@@ -2333,9 +3015,6 @@ section[id] {
 
     gap: 20px;
   }
-
-
-  /* Footer */
 
   .footer-grid {
     grid-template-columns:
@@ -2349,7 +3028,7 @@ section[id] {
 
 
 /* =========================================================
-   54. MOBILE
+   42. MOBILE
    ========================================================= */
 
 @media (max-width: 700px) {
@@ -2373,23 +3052,14 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Header
-     ----------------------------------------- */
+  /* Header */
 
   .site-header {
     position: absolute;
-
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.82),
-        rgba(0, 0, 0, 0)
-      );
   }
 
-  .navigation {
-    min-height: 72px;
+  .header-inner {
+    min-height: 0;
 
     display: block;
 
@@ -2398,13 +3068,62 @@ section[id] {
   }
 
   .site-logo {
-    display: block;
+    align-items: center;
 
     margin-bottom: 13px;
 
-    font-size: 1.25rem;
-
     text-align: center;
+  }
+
+  .logo-main {
+    font-size: 1.05rem;
+  }
+
+  .logo-sub {
+    max-width: 320px;
+
+    font-size: 0.39rem;
+
+    letter-spacing: 0.09em;
+  }
+
+  .site-nav {
+    display: flex;
+
+    justify-content: flex-start;
+
+    gap: 18px;
+
+    overflow-x: auto;
+
+    padding-bottom: 4px;
+
+    scrollbar-width: none;
+  }
+
+  .site-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav a {
+    flex:
+      0 0 auto;
+
+    font-size: 0.55rem;
+
+    letter-spacing: 0.11em;
+  }
+
+
+  /* Older nav */
+
+  .navigation {
+    min-height: 72px;
+
+    display: block;
+
+    padding-top: 18px;
+    padding-bottom: 15px;
   }
 
   .main-navigation {
@@ -2435,9 +3154,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Homepage Hero
-     ----------------------------------------- */
+  /* Homepage hero */
 
   .hero {
     aspect-ratio: 1920 / 1000;
@@ -2494,9 +3211,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Story
-     ----------------------------------------- */
+  /* Story */
 
   .story-introduction {
     gap: 40px;
@@ -2541,9 +3256,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Two Column
-     ----------------------------------------- */
+  /* Two column */
 
   .two-column {
     gap: 38px;
@@ -2570,9 +3283,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Chapter Heading
-     ----------------------------------------- */
+  /* Section heading */
 
   .section-heading {
     margin-bottom: 45px;
@@ -2589,9 +3300,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Chapter Cards
-     ----------------------------------------- */
+  /* Chapter cards */
 
   .chapter-grid {
     gap: 16px;
@@ -2628,9 +3337,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Redemption
-     ----------------------------------------- */
+  /* Redemption */
 
   .redemption-section {
     gap: 40px;
@@ -2665,9 +3372,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Faith
-     ----------------------------------------- */
+  /* Faith */
 
   .faith-banner {
     min-height: 520px;
@@ -2697,9 +3402,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Final Message
-     ----------------------------------------- */
+  /* Final */
 
   .final-message {
     padding:
@@ -2727,9 +3430,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Author
-     ----------------------------------------- */
+  /* Author */
 
   .author-section {
     gap: 30px;
@@ -2750,9 +3451,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     CHAPTER PAGE HERO
-     ----------------------------------------- */
+  /* Chapter hero */
 
   .chapter-hero {
     min-height: 570px;
@@ -2771,7 +3470,7 @@ section[id] {
     padding-bottom: 75px;
   }
 
-  .chapter-hero-content .section-kicker {
+  .chapter-number {
     margin-bottom: 18px;
 
     font-size: 0.59rem;
@@ -2786,18 +3485,26 @@ section[id] {
     line-height: 0.94;
   }
 
-  .chapter-introduction {
+  .chapter-hero-description {
     max-width: 100%;
 
-    font-size: 1.2rem;
+    margin-top: 20px;
 
-    line-height: 1.55;
+    font-size: 1.15rem;
+
+    line-height: 1.45;
   }
 
 
-  /* -----------------------------------------
-     CHAPTER READING
-     ----------------------------------------- */
+  /* Chapter introduction */
+
+  .chapter-introduction .chapter-reading {
+    padding-top: 70px;
+    padding-bottom: 65px;
+  }
+
+
+  /* Chapter reading */
 
   .chapter-reading {
     width:
@@ -2830,9 +3537,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     CHAPTER REFLECTION
-     ----------------------------------------- */
+  /* Reflection */
 
   .chapter-reflection {
     margin:
@@ -2844,10 +3549,10 @@ section[id] {
       24px;
   }
 
-  .chapter-reflection .section-kicker {
+  .reflection-label {
     margin-bottom: 12px;
 
-    font-size: 0.59rem;
+    font-size: 0.57rem !important;
   }
 
   .chapter-reflection p:last-child {
@@ -2857,9 +3562,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     CHAPTER EMPHASIS
-     ----------------------------------------- */
+  /* Emphasis */
 
   .chapter-reading > .chapter-emphasis {
     margin:
@@ -2875,10 +3578,22 @@ section[id] {
     margin-top: -17px;
   }
 
+  .chapter-emphasis-block {
+    margin:
+      45px
+      0;
 
-  /* -----------------------------------------
-     WORSHIPPER SECTION
-     ----------------------------------------- */
+    padding:
+      32px
+      20px;
+  }
+
+  .chapter-emphasis-block p {
+    font-size: 1.75rem;
+  }
+
+
+  /* Worshipper */
 
   .worshipper-section {
     margin:
@@ -2896,10 +3611,16 @@ section[id] {
     font-size: 4rem;
   }
 
-  .worshipper-section .section-kicker {
+  .worshipper-label {
     margin-bottom: 27px;
 
-    font-size: 0.58rem;
+    font-size: 0.56rem !important;
+  }
+
+  .worshipper-line {
+    font-size: 1.65rem !important;
+
+    line-height: 1.3 !important;
   }
 
   .worshipper-section blockquote p {
@@ -2909,9 +3630,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     CHAPTER CONCLUSION
-     ----------------------------------------- */
+  /* Conclusion */
 
   .chapter-conclusion {
     margin-top: 60px;
@@ -2919,22 +3638,16 @@ section[id] {
     padding-top: 50px;
   }
 
-  .chapter-conclusion h2 {
-    font-size: 2.65rem;
-
-    line-height: 1.05;
-  }
-
-  .chapter-conclusion p:last-child {
+  .chapter-conclusion p {
     font-size: 1.35rem;
+  }
 
-    line-height: 1.5;
+  .conclusion-final {
+    font-size: 1.7rem !important;
   }
 
 
-  /* -----------------------------------------
-     CHAPTER NAVIGATION
-     ----------------------------------------- */
+  /* Chapter navigation */
 
   .chapter-navigation-inner {
     min-height: 0;
@@ -2956,7 +3669,7 @@ section[id] {
     display: none;
   }
 
-  .chapter-nav-link strong {
+  .chapter-nav-title {
     font-size: 1.25rem;
   }
 
@@ -2964,39 +3677,181 @@ section[id] {
     font-size: 0.56rem;
   }
 
-  .chapter-next {
+  .chapter-nav-next {
     align-items: flex-end;
 
     text-align: right;
   }
 
 
-  /* -----------------------------------------
-     Footer
-     ----------------------------------------- */
+  /* Supporting pages */
 
-  .footer-grid {
+  .dedication-reading {
+    text-align: center;
+  }
+
+  .dedication-divider {
+    margin:
+      42px
+      auto;
+  }
+
+  .dedication-emphasis {
+    margin:
+      42px
+      auto !important;
+
+    font-size: 2rem !important;
+  }
+
+  .dedication-highlight {
+    margin:
+      48px
+      auto;
+  }
+
+  .dedication-conclusion {
+    margin-top: 55px;
+  }
+
+
+  /* Publication */
+
+  .publication-details {
+    margin:
+      35px
+      0
+      50px;
+  }
+
+  .publication-detail {
     grid-template-columns: 1fr;
 
-    gap: 38px;
+    gap: 7px;
 
     padding:
-      55px 0
-      45px;
+      18px
+      0;
   }
 
-  .footer-brand h3 {
-    font-size: 1.9rem;
+  .publication-label {
+    font-size: 0.56rem;
   }
 
-  .footer-column h4 {
-    margin-bottom: 13px;
+  .publication-value {
+    font-size: 1.12rem;
   }
 
-  .footer-column a {
+
+  /* Contact */
+
+  .contact-details {
+    margin:
+      35px
+      0
+      50px;
+  }
+
+  .contact-detail {
+    grid-template-columns: 1fr;
+
+    gap: 7px;
+
+    padding:
+      18px
+      0;
+  }
+
+  .contact-label {
+    font-size: 0.56rem;
+  }
+
+  .contact-value {
+    font-size: 1.15rem;
+
+    overflow-wrap: anywhere;
+  }
+
+
+  /* Legal */
+
+  .legal-page h2 {
+    margin:
+      50px
+      0
+      18px;
+
+    font-size: 2rem;
+  }
+
+  .legal-page h2:first-of-type {
+    margin-top: 15px;
+  }
+
+  .legal-page .chapter-opening {
+    font-size: 0.58rem !important;
+  }
+
+  .legal-contact {
+    margin-top: 50px;
+  }
+
+
+  /* 404 */
+
+  .error-navigation {
+    grid-template-columns: 1fr;
+
+    margin:
+      50px
+      0;
+
+    gap: 10px;
+  }
+
+  .error-navigation .chapter-nav-link {
+    min-height: 85px;
+  }
+
+
+  /* Footer */
+
+  .footer-inner {
+    padding-top: 52px;
+  }
+
+  .footer-brand {
+    margin-bottom: 35px;
+  }
+
+  .footer-title {
+    font-size: 1.7rem;
+  }
+
+  .footer-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr 1fr;
+
+    gap:
+      35px
+      25px;
+
+    padding-bottom: 40px;
+  }
+
+  .footer-resource-title {
+    margin-bottom: 14px;
+
+    font-size: 0.56rem;
+  }
+
+  .footer-links a {
     margin-bottom: 8px;
 
-    font-size: 0.78rem;
+    font-size: 0.72rem;
   }
 
   .footer-bottom {
@@ -3014,13 +3869,15 @@ section[id] {
   }
 
   .footer-bottom p {
-    font-size: 0.58rem;
+    font-size: 0.56rem;
+
+    line-height: 1.5;
   }
 }
 
 
 /* =========================================================
-   55. SMALL PHONES
+   43. SMALL PHONES
    ========================================================= */
 
 @media (max-width: 390px) {
@@ -3028,6 +3885,14 @@ section[id] {
   .container {
     width:
       calc(100% - 26px);
+  }
+
+  .site-nav {
+    gap: 13px;
+  }
+
+  .site-nav a {
+    font-size: 0.52rem;
   }
 
   .main-navigation {
@@ -3039,8 +3904,6 @@ section[id] {
   }
 
 
-  /* Homepage */
-
   .hero {
     aspect-ratio: 1920 / 1000;
 
@@ -3051,17 +3914,11 @@ section[id] {
     padding-bottom: 14px;
   }
 
-
-  /* Buttons */
-
   .button {
     min-height: 46px;
 
     font-size: 0.56rem;
   }
-
-
-  /* Sections */
 
   .section {
     padding:
@@ -3082,15 +3939,9 @@ section[id] {
     font-size: 2rem;
   }
 
-
-  /* Faith */
-
   .faith-content blockquote {
     font-size: 1.9rem;
   }
-
-
-  /* Final */
 
   .final-message h2 {
     font-size: 2.65rem;
@@ -3114,6 +3965,10 @@ section[id] {
 
   .chapter-hero h1 {
     font-size: 2.95rem;
+  }
+
+  .chapter-hero-description {
+    font-size: 1.05rem;
   }
 
   .chapter-introduction {
@@ -3156,6 +4011,20 @@ section[id] {
     font-size: 2rem;
   }
 
+  .chapter-emphasis-block {
+    margin:
+      40px
+      0;
+
+    padding:
+      28px
+      17px;
+  }
+
+  .chapter-emphasis-block p {
+    font-size: 1.55rem;
+  }
+
   .worshipper-section {
     margin:
       45px
@@ -3164,6 +4033,10 @@ section[id] {
     padding:
       50px
       18px;
+  }
+
+  .worshipper-line {
+    font-size: 1.48rem !important;
   }
 
   .worshipper-section blockquote p {
@@ -3176,22 +4049,50 @@ section[id] {
     padding-top: 43px;
   }
 
-  .chapter-conclusion h2 {
-    font-size: 2.35rem;
-  }
-
-  .chapter-conclusion p:last-child {
+  .chapter-conclusion p {
     font-size: 1.25rem;
   }
 
-  .chapter-nav-link strong {
+  .conclusion-final {
+    font-size: 1.5rem !important;
+  }
+
+  .chapter-nav-title {
     font-size: 1.12rem;
+  }
+
+
+  /* Supporting pages */
+
+  .dedication-opening {
+    font-size: 1.55rem !important;
+  }
+
+  .dedication-emphasis {
+    font-size: 1.75rem !important;
+  }
+
+  .publication-value,
+  .contact-value {
+    font-size: 1.05rem;
+  }
+
+  .legal-page h2 {
+    font-size: 1.8rem;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-title {
+    font-size: 1.55rem;
   }
 }
 
 
 /* =========================================================
-   56. LANDSCAPE MOBILE
+   44. LANDSCAPE MOBILE
    ========================================================= */
 
 @media (
@@ -3218,9 +4119,6 @@ section[id] {
     width: auto;
   }
 
-
-  /* Chapter landscape */
-
   .chapter-hero {
     min-height: 520px;
   }
@@ -3233,7 +4131,7 @@ section[id] {
 
 
 /* =========================================================
-   57. ACCESSIBILITY
+   45. ACCESSIBILITY
    ========================================================= */
 
 a:focus-visible {
@@ -3245,7 +4143,7 @@ a:focus-visible {
 
 
 /* =========================================================
-   58. REDUCED MOTION
+   46. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -3270,7 +4168,7 @@ a:focus-visible {
 
 
 /* =========================================================
-   59. FORCED COLORS
+   47. FORCED COLORS
    ========================================================= */
 
 @media (forced-colors: active) {
@@ -3279,11 +4177,15 @@ a:focus-visible {
   .chapter-card,
   .story-highlight,
   .chapter-reflection,
-  .worshipper-section {
+  .worshipper-section,
+  .chapter-emphasis-block,
+  .publication-detail,
+  .contact-detail {
     border:
       1px solid CanvasText;
   }
 
+  .site-nav a::after,
   .main-navigation a::after {
     background: CanvasText;
   }
@@ -3291,13 +4193,14 @@ a:focus-visible {
 
 
 /* =========================================================
-   60. PRINT
+   48. PRINT
    ========================================================= */
 
 @media print {
 
   .site-header,
   .hero-buttons,
+  .site-nav,
   .main-navigation,
   .site-footer,
   .chapter-navigation {
@@ -3313,7 +4216,8 @@ a:focus-visible {
   .section,
   .final-message,
   .chapter-hero,
-  .chapter-content {
+  .chapter-content,
+  .chapter-introduction {
     padding:
       30px 0;
 
