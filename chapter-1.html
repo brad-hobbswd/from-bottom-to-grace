@@ -40,43 +40,22 @@
        ========================================= -->
 
   <header class="site-header">
-
     <div class="container navigation">
-
-      <a
-        href="index.html"
-        class="site-logo"
-        aria-label="From the Bottom to Grace Home"
-      >
+      <a href="index.html" class="site-logo" aria-label="From the Bottom to Grace Home">
         From the Bottom <span>to Grace</span>
       </a>
 
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
 
-      <nav
-        class="main-navigation"
-        aria-label="Main Navigation"
-      >
-
-        <a href="index.html#story">
-          The Story
-        </a>
-
-        <a href="index.html#chapters">
-          Chapters
-        </a>
-
-        <a href="index.html#faith">
-          Faith
-        </a>
-
-        <a href="author.html">
-          Author
-        </a>
-
+      <nav class="main-navigation" id="site-menu" aria-label="Main Navigation">
+        <a href="index.html#story">The Story</a>
+        <a href="index.html#chapters">Chapters</a>
+        <a href="index.html#faith">Faith</a>
+        <a href="author.html">Author</a>
       </nav>
-
     </div>
-
   </header>
 
 
@@ -457,5 +436,6 @@
   </footer>
 
 
+  <script src="site.js"></script>
 </body>
 </html>
