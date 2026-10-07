@@ -4358,3 +4358,64 @@ a:focus-visible {
     display: flex;
   }
 }
+
+
+/* =========================================================
+   HOMEPAGE MOBILE POLISH
+   Keep the artwork unobstructed on phones.
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .homepage-header .site-logo {
+    display: none;
+  }
+
+  .homepage-header .navigation {
+    min-height: 64px;
+    justify-content: flex-end;
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+
+  .homepage-header .mobile-menu-toggle {
+    width: 44px;
+    height: 40px;
+  }
+
+  .homepage-header .main-navigation {
+    top: calc(100% - 1px);
+  }
+
+  .hero {
+    margin-bottom: 118px;
+  }
+
+  .hero-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -108px;
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    gap: 9px;
+  }
+
+  .hero-buttons .button {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero {
+    margin-bottom: 110px;
+  }
+
+  .hero-content {
+    bottom: -100px;
+  }
+}
