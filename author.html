@@ -18,23 +18,21 @@
 
   <!-- HEADER -->
   <header class="site-header">
-    <div class="container header-inner">
-
-      <a href="index.html" class="site-logo">
-        <span class="logo-main">FROM THE BOTTOM TO GRACE</span>
-        <span class="logo-sub">
-          A Story of Addiction, Redemption, and Unconditional Love
-        </span>
+    <div class="container navigation">
+      <a href="index.html" class="site-logo" aria-label="From the Bottom to Grace Home">
+        From the Bottom <span>to Grace</span>
       </a>
 
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
+      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-navigation" id="site-menu" aria-label="Main Navigation">
         <a href="index.html#story">The Story</a>
         <a href="index.html#chapters">Chapters</a>
-        <a href="index.html#faith">Grace &amp; Faith</a>
-        <a href="author.html" class="active">Author</a>
+        <a href="index.html#faith">Faith</a>
+        <a href="author.html">Author</a>
       </nav>
-
     </div>
   </header>
 
@@ -424,5 +422,6 @@
 
   </footer>
 
+  <script src="site.js"></script>
 </body>
 </html>
