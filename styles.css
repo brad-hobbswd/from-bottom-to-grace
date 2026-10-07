@@ -4419,3 +4419,63 @@ a:focus-visible {
     bottom: -100px;
   }
 }
+
+
+/* =========================================================
+   HOMEPAGE HERO ACTIONS
+   Keep calls to action completely below the book artwork.
+   ========================================================= */
+
+.hero-actions {
+  position: relative;
+  z-index: 3;
+  padding: 24px 0 30px;
+  background:
+    linear-gradient(
+      180deg,
+      #17110c 0%,
+      #0b0907 100%
+    );
+  border-bottom: 1px solid rgba(199, 161, 90, 0.12);
+}
+
+.hero-actions .hero-buttons {
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    margin-bottom: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    padding: 0;
+  }
+
+  .hero-actions {
+    padding: 12px 0 22px;
+  }
+
+  .hero-actions .hero-buttons {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    min-height: 48px;
+  }
+}
+
+@media (min-width: 701px) {
+  .hero-actions .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
