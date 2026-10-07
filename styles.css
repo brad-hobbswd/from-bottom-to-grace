@@ -4479,3 +4479,32 @@ a:focus-visible {
     flex-wrap: wrap;
   }
 }
+
+
+/* =========================================================
+   HOMEPAGE HEADER / BANNER SEPARATION
+   The navigation has its own space so the book banner
+   always begins underneath it.
+   ========================================================= */
+
+.homepage-header {
+  position: relative;
+  background:
+    linear-gradient(
+      180deg,
+      #0b0907 0%,
+      #17110c 100%
+    );
+  border-bottom: 1px solid rgba(199, 161, 90, 0.16);
+}
+
+@media (max-width: 700px) {
+  .homepage-header {
+    position: relative;
+    background: #0b0907;
+  }
+
+  .homepage-header .navigation {
+    min-height: 64px;
+  }
+}
