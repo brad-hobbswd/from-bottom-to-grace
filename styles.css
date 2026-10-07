@@ -2,6 +2,7 @@
    FROM THE BOTTOM TO GRACE
    Bradley Hobbs
    Complete Global Stylesheet
+   Homepage + Chapter Pages
    ========================================================= */
 
 
@@ -60,6 +61,11 @@ textarea {
   resize: vertical;
 }
 
+::selection {
+  background: #c7a15a;
+  color: #0b0907;
+}
+
 
 /* =========================================================
    2. ROOT VARIABLES
@@ -106,6 +112,8 @@ textarea {
     sans-serif;
 
   --max-width: 1180px;
+
+  --reading-width: 790px;
 }
 
 
@@ -147,11 +155,6 @@ strong {
   color: var(--white);
 }
 
-::selection {
-  background: var(--gold);
-  color: var(--black);
-}
-
 
 /* =========================================================
    4. CONTAINER
@@ -173,6 +176,7 @@ strong {
 
 .site-header {
   position: absolute;
+
   top: 0;
   left: 0;
 
@@ -195,6 +199,7 @@ strong {
   min-height: 92px;
 
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 
@@ -238,6 +243,7 @@ strong {
 
 .main-navigation {
   display: flex;
+
   align-items: center;
   justify-content: flex-end;
 
@@ -250,10 +256,12 @@ strong {
   padding: 10px 0;
 
   font-family: var(--sans);
+
   font-size: 0.72rem;
   font-weight: 600;
 
   letter-spacing: 0.16em;
+
   text-transform: uppercase;
 
   color:
@@ -290,7 +298,7 @@ strong {
 
 
 /* =========================================================
-   8. HERO
+   8. HOMEPAGE HERO
    Complete Book Artwork
    ========================================================= */
 
@@ -299,16 +307,12 @@ strong {
 
   width: 100%;
 
-  /*
-    The uploaded artwork is already a complete composition.
-    Keep the original proportions on every screen.
-  */
-
   aspect-ratio: 1920 / 1000;
 
   min-height: 0;
 
   display: flex;
+
   align-items: flex-end;
 
   overflow: hidden;
@@ -320,11 +324,6 @@ strong {
 
   background-repeat: no-repeat;
 
-  /*
-    100% 100% preserves the entire uploaded artwork.
-    Nothing is cropped from the sides or top.
-  */
-
   background-size: 100% 100%;
 
   background-position: center center;
@@ -334,7 +333,7 @@ strong {
 
 
 /* =========================================================
-   9. HERO OVERLAY
+   9. HOMEPAGE HERO OVERLAY
    ========================================================= */
 
 .hero-overlay {
@@ -358,7 +357,7 @@ strong {
 
 
 /* =========================================================
-   10. HERO CONTENT
+   10. HOMEPAGE HERO CONTENT
    ========================================================= */
 
 .hero-content {
@@ -377,14 +376,16 @@ strong {
     45px;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: flex-start;
 }
 
 
 /*
-   The actual title, subtitle and author are already
-   contained in the uploaded artwork.
+   Title, subtitle and author are already contained
+   inside the uploaded artwork.
 */
 
 .hero-kicker,
@@ -1441,7 +1442,581 @@ strong {
 
 
 /* =========================================================
-   37. FOOTER
+   37. CHAPTER PAGE
+   CHAPTER HERO
+   ========================================================= */
+
+.chapter-hero {
+  position: relative;
+
+  min-height: 600px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 25%,
+      rgba(199, 161, 90, 0.16),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #080604 0%,
+      #1d140e 48%,
+      #090705 100%
+    );
+
+  border-bottom:
+    1px solid rgba(199, 161, 90, 0.16);
+
+  isolation: isolate;
+}
+
+
+/* Decorative glow */
+
+.chapter-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  right: -250px;
+  top: -260px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(199, 161, 90, 0.12),
+      transparent 68%
+    );
+
+  pointer-events: none;
+}
+
+
+/* Gold vertical line */
+
+.chapter-hero::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: 0;
+
+  width: 1px;
+  height: 120px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(199, 161, 90, 0.65)
+    );
+
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   38. CHAPTER HERO CONTENT
+   ========================================================= */
+
+.chapter-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  padding-top: 180px;
+  padding-bottom: 105px;
+}
+
+.chapter-hero-content .section-kicker {
+  margin-bottom: 24px;
+}
+
+.chapter-hero h1 {
+  max-width: 900px;
+
+  margin-bottom: 30px;
+
+  font-size:
+    clamp(3.7rem, 8vw, 7.5rem);
+
+  line-height: 0.95;
+
+  color: var(--white);
+}
+
+.chapter-hero h1 span {
+  display: block;
+
+  color: var(--gold-light);
+}
+
+.chapter-introduction {
+  max-width: 680px;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(1.35rem, 2.5vw, 1.9rem);
+
+  line-height: 1.55;
+
+  color: var(--cream-soft);
+}
+
+
+/* =========================================================
+   39. CHAPTER CONTENT
+   ========================================================= */
+
+.chapter-content {
+  position: relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      #211812 0%,
+      #18110c 48%,
+      #0e0b08 100%
+    );
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.035);
+}
+
+
+/* =========================================================
+   40. CHAPTER READING AREA
+   ========================================================= */
+
+.chapter-reading {
+  width: min(
+    calc(100% - 48px),
+    var(--reading-width)
+  );
+
+  padding-top: 105px;
+  padding-bottom: 120px;
+}
+
+
+/* =========================================================
+   41. CHAPTER PARAGRAPHS
+   ========================================================= */
+
+.chapter-reading > p {
+  margin-bottom: 27px;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(1.18rem, 1.8vw, 1.35rem);
+
+  line-height: 1.95;
+
+  color: var(--cream-soft);
+}
+
+.chapter-reading > p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   42. CHAPTER OPENING
+   ========================================================= */
+
+.chapter-reading .chapter-opening {
+  position: relative;
+
+  margin-bottom: 34px;
+
+  padding-top: 34px;
+
+  font-size:
+    clamp(1.35rem, 2vw, 1.55rem);
+
+  color: var(--white);
+}
+
+.chapter-reading .chapter-opening::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 80px;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   43. CHAPTER REFLECTION
+   ========================================================= */
+
+.chapter-reflection {
+  position: relative;
+
+  margin:
+    60px
+    0;
+
+  padding:
+    40px
+    42px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(199, 161, 90, 0.10),
+      rgba(199, 161, 90, 0.025)
+    );
+
+  border:
+    1px solid rgba(199, 161, 90, 0.24);
+
+  border-left:
+    3px solid var(--gold);
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.20);
+}
+
+.chapter-reflection .section-kicker {
+  margin-bottom: 15px;
+}
+
+.chapter-reflection p:last-child {
+  font-family: var(--serif);
+
+  font-size:
+    clamp(1.7rem, 3vw, 2.6rem);
+
+  line-height: 1.25;
+
+  color: var(--white);
+}
+
+
+/* =========================================================
+   44. CHAPTER EMPHASIS
+   ========================================================= */
+
+.chapter-reading > .chapter-emphasis {
+  margin:
+    42px
+    0;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(2rem, 4vw, 3.4rem);
+
+  line-height: 1.15;
+
+  text-align: center;
+
+  color: var(--gold-light);
+}
+
+.chapter-reading > .chapter-emphasis + .chapter-emphasis {
+  margin-top: -28px;
+}
+
+
+/* =========================================================
+   45. WORSHIPPER SECTION
+   ========================================================= */
+
+.worshipper-section {
+  position: relative;
+
+  margin:
+    70px
+    0;
+
+  padding:
+    65px
+    55px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(199, 161, 90, 0.13),
+      transparent 65%
+    ),
+    linear-gradient(
+      145deg,
+      #1d140e,
+      #0d0a07
+    );
+
+  border-top:
+    1px solid rgba(199, 161, 90, 0.25);
+
+  border-bottom:
+    1px solid rgba(199, 161, 90, 0.25);
+}
+
+.worshipper-section::before {
+  content: "“";
+
+  position: absolute;
+
+  top: 15px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  font-family: Georgia, serif;
+
+  font-size: 5rem;
+
+  line-height: 1;
+
+  color: var(--gold);
+
+  opacity: 0.38;
+}
+
+.worshipper-section .section-kicker {
+  margin-bottom: 32px;
+}
+
+.worshipper-section blockquote {
+  max-width: 650px;
+
+  margin-inline: auto;
+}
+
+.worshipper-section blockquote p {
+  margin-bottom: 15px;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(1.65rem, 3vw, 2.5rem);
+
+  line-height: 1.3;
+
+  color: var(--white);
+}
+
+.worshipper-section blockquote p:last-child {
+  margin-bottom: 0;
+
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   46. CHAPTER CONCLUSION
+   ========================================================= */
+
+.chapter-conclusion {
+  position: relative;
+
+  margin-top: 80px;
+
+  padding-top: 65px;
+
+  text-align: center;
+
+  border-top:
+    1px solid rgba(199, 161, 90, 0.24);
+}
+
+.chapter-conclusion::before {
+  content: "";
+
+  position: absolute;
+
+  top: -1px;
+  left: 50%;
+
+  width: 90px;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--gold),
+      transparent
+    );
+}
+
+.chapter-conclusion .section-kicker {
+  margin-bottom: 22px;
+}
+
+.chapter-conclusion h2 {
+  max-width: 700px;
+
+  margin:
+    0
+    auto
+    22px;
+
+  font-size:
+    clamp(2.6rem, 5vw, 4.6rem);
+
+  color: var(--white);
+}
+
+.chapter-conclusion p:last-child {
+  max-width: 650px;
+
+  margin-inline: auto;
+
+  font-family: var(--serif);
+
+  font-size:
+    clamp(1.35rem, 2.5vw, 1.85rem);
+
+  line-height: 1.5;
+
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   47. CHAPTER NAVIGATION
+   ========================================================= */
+
+.chapter-navigation {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0d0a07,
+      #18110c
+    );
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.04);
+
+  border-bottom:
+    1px solid rgba(199, 161, 90, 0.14);
+}
+
+.chapter-navigation-inner {
+  min-height: 150px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
+
+  align-items: center;
+
+  gap: 35px;
+}
+
+.chapter-nav-link {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.chapter-nav-link:hover {
+  color: var(--gold-light);
+
+  transform: translateY(-2px);
+}
+
+.chapter-nav-link strong {
+  font-family: var(--serif);
+
+  font-size: 1.5rem;
+
+  font-weight: 500;
+
+  color: var(--cream);
+}
+
+.chapter-nav-label {
+  font-family: var(--sans);
+
+  font-size: 0.6rem;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: var(--gold-light);
+}
+
+.chapter-next {
+  align-items: flex-end;
+
+  text-align: right;
+}
+
+.chapter-nav-center {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  font-family: var(--sans);
+
+  font-size: 0.58rem;
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+
+  color: #81766b;
+
+  white-space: nowrap;
+}
+
+.chapter-nav-divider {
+  color: var(--gold-dark);
+}
+
+
+/* =========================================================
+   48. FOOTER
    ========================================================= */
 
 .site-footer {
@@ -1538,7 +2113,7 @@ strong {
 
 
 /* =========================================================
-   38. FOOTER BOTTOM
+   49. FOOTER BOTTOM
    ========================================================= */
 
 .footer-bottom {
@@ -1569,7 +2144,7 @@ strong {
 
 
 /* =========================================================
-   39. GOLD UTILITY
+   50. GOLD UTILITY
    ========================================================= */
 
 .gold {
@@ -1578,7 +2153,7 @@ strong {
 
 
 /* =========================================================
-   40. MAIN
+   51. MAIN
    ========================================================= */
 
 main {
@@ -1595,7 +2170,7 @@ section[id] {
 
 
 /* =========================================================
-   41. LARGE SCREEN
+   52. LARGE SCREEN
    ========================================================= */
 
 @media (min-width: 1400px) {
@@ -1612,11 +2187,20 @@ section[id] {
   .faith-banner {
     min-height: 700px;
   }
+
+  .chapter-hero {
+    min-height: 680px;
+  }
+
+  .chapter-reading {
+    padding-top: 125px;
+    padding-bottom: 145px;
+  }
 }
 
 
 /* =========================================================
-   42. TABLET
+   53. TABLET
    ========================================================= */
 
 @media (max-width: 1000px) {
@@ -1630,9 +2214,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Navigation
-     ----------------------------------------- */
+  /* Navigation */
 
   .navigation {
     min-height: 82px;
@@ -1645,9 +2227,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Story
-     ----------------------------------------- */
+  /* Story */
 
   .story-introduction {
     grid-template-columns: 1fr;
@@ -1662,9 +2242,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Two Column Sections
-     ----------------------------------------- */
+  /* Two Column */
 
   .two-column {
     grid-template-columns: 1fr;
@@ -1677,9 +2255,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Chapters
-     ----------------------------------------- */
+  /* Chapters */
 
   .chapter-grid {
     grid-template-columns: 1fr;
@@ -1702,9 +2278,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Redemption
-     ----------------------------------------- */
+  /* Redemption */
 
   .redemption-section {
     grid-template-columns: 1fr;
@@ -1717,9 +2291,7 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Author
-     ----------------------------------------- */
+  /* Author */
 
   .author-section {
     grid-template-columns: 1fr;
@@ -1728,9 +2300,42 @@ section[id] {
   }
 
 
-  /* -----------------------------------------
-     Footer
-     ----------------------------------------- */
+  /* Chapter Hero */
+
+  .chapter-hero {
+    min-height: 520px;
+  }
+
+  .chapter-hero-content {
+    padding-top: 160px;
+    padding-bottom: 85px;
+  }
+
+
+  /* Chapter Reading */
+
+  .chapter-reading {
+    width:
+      min(
+        calc(100% - 60px),
+        var(--reading-width)
+      );
+  }
+
+
+  /* Chapter Navigation */
+
+  .chapter-navigation-inner {
+    grid-template-columns:
+      1fr
+      auto
+      1fr;
+
+    gap: 20px;
+  }
+
+
+  /* Footer */
 
   .footer-grid {
     grid-template-columns:
@@ -1744,7 +2349,7 @@ section[id] {
 
 
 /* =========================================================
-   43. MOBILE
+   54. MOBILE
    ========================================================= */
 
 @media (max-width: 700px) {
@@ -1831,16 +2436,10 @@ section[id] {
 
 
   /* -----------------------------------------
-     Hero
+     Homepage Hero
      ----------------------------------------- */
 
   .hero {
-    /*
-      Keep the exact artwork ratio.
-      No artificial height.
-      No cropping.
-    */
-
     aspect-ratio: 1920 / 1000;
 
     min-height: 0;
@@ -2152,6 +2751,227 @@ section[id] {
 
 
   /* -----------------------------------------
+     CHAPTER PAGE HERO
+     ----------------------------------------- */
+
+  .chapter-hero {
+    min-height: 570px;
+
+    align-items: flex-end;
+  }
+
+  .chapter-hero::after {
+    left: 50%;
+
+    height: 75px;
+  }
+
+  .chapter-hero-content {
+    padding-top: 175px;
+    padding-bottom: 75px;
+  }
+
+  .chapter-hero-content .section-kicker {
+    margin-bottom: 18px;
+
+    font-size: 0.59rem;
+  }
+
+  .chapter-hero h1 {
+    margin-bottom: 24px;
+
+    font-size:
+      clamp(3.15rem, 13vw, 5rem);
+
+    line-height: 0.94;
+  }
+
+  .chapter-introduction {
+    max-width: 100%;
+
+    font-size: 1.2rem;
+
+    line-height: 1.55;
+  }
+
+
+  /* -----------------------------------------
+     CHAPTER READING
+     ----------------------------------------- */
+
+  .chapter-reading {
+    width:
+      calc(100% - 32px);
+
+    padding-top: 70px;
+    padding-bottom: 85px;
+  }
+
+  .chapter-reading > p {
+    margin-bottom: 23px;
+
+    font-size: 1.13rem;
+
+    line-height: 1.9;
+  }
+
+  .chapter-reading .chapter-opening {
+    margin-bottom: 28px;
+
+    padding-top: 28px;
+
+    font-size: 1.22rem;
+
+    line-height: 1.85;
+  }
+
+  .chapter-reading .chapter-opening::before {
+    width: 65px;
+  }
+
+
+  /* -----------------------------------------
+     CHAPTER REFLECTION
+     ----------------------------------------- */
+
+  .chapter-reflection {
+    margin:
+      48px
+      0;
+
+    padding:
+      30px
+      24px;
+  }
+
+  .chapter-reflection .section-kicker {
+    margin-bottom: 12px;
+
+    font-size: 0.59rem;
+  }
+
+  .chapter-reflection p:last-child {
+    font-size: 1.75rem;
+
+    line-height: 1.25;
+  }
+
+
+  /* -----------------------------------------
+     CHAPTER EMPHASIS
+     ----------------------------------------- */
+
+  .chapter-reading > .chapter-emphasis {
+    margin:
+      34px
+      0;
+
+    font-size: 2.2rem;
+
+    line-height: 1.15;
+  }
+
+  .chapter-reading > .chapter-emphasis + .chapter-emphasis {
+    margin-top: -17px;
+  }
+
+
+  /* -----------------------------------------
+     WORSHIPPER SECTION
+     ----------------------------------------- */
+
+  .worshipper-section {
+    margin:
+      52px
+      0;
+
+    padding:
+      55px
+      22px;
+  }
+
+  .worshipper-section::before {
+    top: 13px;
+
+    font-size: 4rem;
+  }
+
+  .worshipper-section .section-kicker {
+    margin-bottom: 27px;
+
+    font-size: 0.58rem;
+  }
+
+  .worshipper-section blockquote p {
+    font-size: 1.65rem;
+
+    line-height: 1.3;
+  }
+
+
+  /* -----------------------------------------
+     CHAPTER CONCLUSION
+     ----------------------------------------- */
+
+  .chapter-conclusion {
+    margin-top: 60px;
+
+    padding-top: 50px;
+  }
+
+  .chapter-conclusion h2 {
+    font-size: 2.65rem;
+
+    line-height: 1.05;
+  }
+
+  .chapter-conclusion p:last-child {
+    font-size: 1.35rem;
+
+    line-height: 1.5;
+  }
+
+
+  /* -----------------------------------------
+     CHAPTER NAVIGATION
+     ----------------------------------------- */
+
+  .chapter-navigation-inner {
+    min-height: 0;
+
+    display: grid;
+
+    grid-template-columns:
+      1fr
+      1fr;
+
+    gap: 0;
+
+    padding:
+      30px
+      0;
+  }
+
+  .chapter-nav-center {
+    display: none;
+  }
+
+  .chapter-nav-link strong {
+    font-size: 1.25rem;
+  }
+
+  .chapter-nav-label {
+    font-size: 0.56rem;
+  }
+
+  .chapter-next {
+    align-items: flex-end;
+
+    text-align: right;
+  }
+
+
+  /* -----------------------------------------
      Footer
      ----------------------------------------- */
 
@@ -2200,7 +3020,7 @@ section[id] {
 
 
 /* =========================================================
-   44. SMALL PHONES
+   55. SMALL PHONES
    ========================================================= */
 
 @media (max-width: 390px) {
@@ -2218,6 +3038,9 @@ section[id] {
     font-size: 0.53rem;
   }
 
+
+  /* Homepage */
+
   .hero {
     aspect-ratio: 1920 / 1000;
 
@@ -2228,11 +3051,17 @@ section[id] {
     padding-bottom: 14px;
   }
 
+
+  /* Buttons */
+
   .button {
     min-height: 46px;
 
     font-size: 0.56rem;
   }
+
+
+  /* Sections */
 
   .section {
     padding:
@@ -2253,9 +3082,15 @@ section[id] {
     font-size: 2rem;
   }
 
+
+  /* Faith */
+
   .faith-content blockquote {
     font-size: 1.9rem;
   }
+
+
+  /* Final */
 
   .final-message h2 {
     font-size: 2.65rem;
@@ -2264,11 +3099,99 @@ section[id] {
   .final-line {
     font-size: 2rem;
   }
+
+
+  /* Chapter */
+
+  .chapter-hero {
+    min-height: 535px;
+  }
+
+  .chapter-hero-content {
+    padding-top: 165px;
+    padding-bottom: 62px;
+  }
+
+  .chapter-hero h1 {
+    font-size: 2.95rem;
+  }
+
+  .chapter-introduction {
+    font-size: 1.08rem;
+  }
+
+  .chapter-reading {
+    width:
+      calc(100% - 26px);
+
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+
+  .chapter-reading > p {
+    font-size: 1.08rem;
+
+    line-height: 1.86;
+  }
+
+  .chapter-reading .chapter-opening {
+    font-size: 1.16rem;
+  }
+
+  .chapter-reflection {
+    margin:
+      42px
+      0;
+
+    padding:
+      27px
+      20px;
+  }
+
+  .chapter-reflection p:last-child {
+    font-size: 1.55rem;
+  }
+
+  .chapter-reading > .chapter-emphasis {
+    font-size: 2rem;
+  }
+
+  .worshipper-section {
+    margin:
+      45px
+      0;
+
+    padding:
+      50px
+      18px;
+  }
+
+  .worshipper-section blockquote p {
+    font-size: 1.48rem;
+  }
+
+  .chapter-conclusion {
+    margin-top: 52px;
+
+    padding-top: 43px;
+  }
+
+  .chapter-conclusion h2 {
+    font-size: 2.35rem;
+  }
+
+  .chapter-conclusion p:last-child {
+    font-size: 1.25rem;
+  }
+
+  .chapter-nav-link strong {
+    font-size: 1.12rem;
+  }
 }
 
 
 /* =========================================================
-   45. LANDSCAPE MOBILE
+   56. LANDSCAPE MOBILE
    ========================================================= */
 
 @media (
@@ -2294,11 +3217,23 @@ section[id] {
   .hero-buttons .button {
     width: auto;
   }
+
+
+  /* Chapter landscape */
+
+  .chapter-hero {
+    min-height: 520px;
+  }
+
+  .chapter-hero-content {
+    padding-top: 145px;
+    padding-bottom: 65px;
+  }
 }
 
 
 /* =========================================================
-   46. ACCESSIBILITY
+   57. ACCESSIBILITY
    ========================================================= */
 
 a:focus-visible {
@@ -2310,7 +3245,7 @@ a:focus-visible {
 
 
 /* =========================================================
-   47. REDUCED MOTION
+   58. REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -2335,14 +3270,16 @@ a:focus-visible {
 
 
 /* =========================================================
-   48. FORCED COLORS
+   59. FORCED COLORS
    ========================================================= */
 
 @media (forced-colors: active) {
 
   .button,
   .chapter-card,
-  .story-highlight {
+  .story-highlight,
+  .chapter-reflection,
+  .worshipper-section {
     border:
       1px solid CanvasText;
   }
@@ -2354,7 +3291,7 @@ a:focus-visible {
 
 
 /* =========================================================
-   49. PRINT
+   60. PRINT
    ========================================================= */
 
 @media print {
@@ -2362,7 +3299,8 @@ a:focus-visible {
   .site-header,
   .hero-buttons,
   .main-navigation,
-  .site-footer {
+  .site-footer,
+  .chapter-navigation {
     display: none;
   }
 
@@ -2373,7 +3311,9 @@ a:focus-visible {
   }
 
   .section,
-  .final-message {
+  .final-message,
+  .chapter-hero,
+  .chapter-content {
     padding:
       30px 0;
 
@@ -2386,6 +3326,11 @@ a:focus-visible {
   h3,
   h4,
   p {
+    color:
+      black !important;
+  }
+
+  .chapter-reading > p {
     color:
       black !important;
   }
