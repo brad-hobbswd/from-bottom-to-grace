@@ -4613,3 +4613,144 @@ a:focus-visible {
     display: none;
   }
 }
+
+
+/* =========================================================
+   BOOK NAVIGATION — SIMPLE EDITORIAL SYSTEM
+   Chapters, supporting pages, and legal pages use
+   separate wrappers but share one restrained visual language.
+   ========================================================= */
+
+.chapter-navigation,
+.support-navigation,
+.legal-navigation {
+  position: relative;
+  background:
+    linear-gradient(
+      180deg,
+      #100c09 0%,
+      #0b0907 100%
+    );
+  border-top: 1px solid rgba(199, 161, 90, 0.16);
+  border-bottom: 1px solid rgba(199, 161, 90, 0.16);
+}
+
+.book-navigation-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  column-gap: 70px;
+  row-gap: 38px;
+  padding: 52px 0 30px;
+}
+
+.book-nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 620px;
+  color: var(--cream);
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.book-nav-link:hover {
+  color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.book-nav-next {
+  justify-self: end;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.book-nav-label {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.book-nav-title {
+  font-family: var(--serif);
+  font-size: clamp(1.75rem, 2.7vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--cream);
+}
+
+.book-nav-home {
+  grid-column: 1 / -1;
+  justify-self: center;
+  padding-top: 8px;
+  color: #81766b;
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-top: 1px solid rgba(199, 161, 90, 0.12);
+  padding-left: 35px;
+  padding-right: 35px;
+  transition: color 0.25s ease;
+}
+
+.book-nav-home:hover {
+  color: var(--gold-light);
+}
+
+.book-nav-spacer {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .book-navigation-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 38px 0 30px;
+  }
+
+  .book-nav-link {
+    max-width: 100%;
+    gap: 10px;
+  }
+
+  .book-nav-next {
+    justify-self: start;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .book-nav-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+
+  .book-nav-title {
+    font-size: clamp(1.65rem, 7vw, 2.25rem);
+    line-height: 1.1;
+  }
+
+  .book-nav-home {
+    grid-column: auto;
+    justify-self: center;
+    margin-top: 4px;
+    padding-top: 16px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 0.54rem;
+    letter-spacing: 0.17em;
+  }
+
+  .book-nav-spacer {
+    display: none;
+  }
+}
