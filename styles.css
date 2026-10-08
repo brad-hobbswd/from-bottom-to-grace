@@ -3477,12 +3477,17 @@ section[id] {
   }
 
   .chapter-hero h1 {
+    width: 100%;
+    max-width: 100%;
     margin-bottom: 24px;
 
     font-size:
-      clamp(3.15rem, 13vw, 5rem);
+      clamp(2.65rem, 11vw, 4.25rem);
 
-    line-height: 0.94;
+    line-height: 0.98;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
   }
 
   .chapter-hero-description {
