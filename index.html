@@ -147,6 +147,117 @@
     @media (min-width: 701px) {
       .homepage-header .main-navigation { display: flex; }
     }
+
+    /* Final iPad and mobile viewport correction */
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      margin: 0;
+      overflow-x: clip;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    .homepage-header, main, .hero, .hero-actions, .section, .faith-banner,
+    .final-message, .site-footer {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+    .container {
+      width: min(100% - 40px, 1180px);
+      max-width: 1180px;
+      min-width: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .homepage-header {
+      position: relative;
+      inset: auto;
+      background: #0b0907;
+    }
+    .homepage-header .navigation {
+      min-height: 76px;
+      width: min(100% - 40px, 1180px);
+    }
+    .hero {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      aspect-ratio: 1536 / 1024;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-size: 100% 100%;
+      background-position: center;
+    }
+    .hero-actions {
+      margin: 0;
+      padding: 22px 0;
+      min-height: 0;
+    }
+    .hero-actions > .container {
+      width: min(100% - 40px, 1180px);
+    }
+    .section-warm, .section-dark, .section-black, .section,
+    .story-introduction, .story-text, .two-column, .section-copy,
+    .author-section, .section-heading, .chapter-grid, .chapter-card {
+      min-width: 0;
+      max-width: 100%;
+    }
+    .story-introduction {
+      display: block;
+      width: 100%;
+    }
+    .story-text {
+      width: 100%;
+      max-width: 790px;
+      margin: 0 auto;
+    }
+    .story-text h2, .two-column h2, .section-heading h2,
+    .author-section h2, .final-message h2 {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+      font-size: clamp(2.1rem, 5.4vw, 4.6rem);
+    }
+    .story-text p, .section-copy p, .chapter-card p,
+    .author-section p, .final-message p {
+      overflow-wrap: break-word;
+      font-size: clamp(1rem, 1.6vw, 1.125rem);
+      line-height: 1.8;
+    }
+    @media (max-width: 1100px) {
+      .story-introduction, .two-column, .author-section {
+        display: block;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+      }
+      .story-introduction > *, .two-column > *, .author-section > * {
+        width: 100%;
+        max-width: 100%;
+      }
+      .section { padding: clamp(56px, 8vw, 88px) 0; }
+      .two-column > div + div, .author-section > div + div { margin-top: 28px; }
+      .chapter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 700px) {
+      .container, .homepage-header .navigation,
+      .hero-actions > .container {
+        width: calc(100% - 32px);
+      }
+      .homepage-header .navigation { min-height: 64px; }
+      .hero { aspect-ratio: 3 / 2; }
+      .hero-actions { padding: 16px 0 22px; }
+      .hero-actions .hero-buttons { display: grid; grid-template-columns: 1fr; }
+      .hero-actions .button { width: 100%; }
+      .chapter-grid { grid-template-columns: minmax(0, 1fr); }
+      .story-text h2, .two-column h2, .section-heading h2,
+      .author-section h2, .final-message h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+      }
+    }
+
   </style>
 </head>
 
