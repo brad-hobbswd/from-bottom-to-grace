@@ -5286,3 +5286,334 @@ p,
     font-size: 0.7rem;
   }
 }
+
+/* =========================================================
+   CALM, CONSISTENT READING SYSTEM
+   Simplifies visual differences across the whole book website.
+   ========================================================= */
+:root {
+  --black: #11100f;
+  --black-soft: #171513;
+  --charcoal: #1d1a17;
+  --brown-dark: #211b16;
+  --gold: #b69a63;
+  --gold-light: #d0b77f;
+  --cream: #f2ede5;
+  --cream-soft: #e1d9ce;
+  --muted: #b8afa4;
+  --reading-width: 740px;
+}
+
+html, body {
+  background: #11100f;
+  color: var(--cream);
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.site-header {
+  background: rgba(17, 16, 15, 0.96);
+  border-bottom: 1px solid rgba(182, 154, 99, 0.18);
+  backdrop-filter: none;
+}
+
+.site-header .navigation,
+.homepage-header .navigation {
+  min-height: 78px;
+}
+
+.site-logo,
+.site-logo:hover {
+  color: var(--cream);
+}
+
+.site-logo span,
+.logo-sub {
+  color: var(--gold-light);
+}
+
+.main-navigation,
+.site-nav {
+  gap: clamp(14px, 2vw, 26px);
+}
+
+.main-navigation a,
+.site-nav a {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: #e1d9ce;
+}
+
+.main-navigation a:hover,
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--gold-light);
+}
+
+.chapter-hero,
+.chapter-content,
+.chapter-introduction,
+.chapter-reading,
+.legal-page {
+  background: #11100f;
+}
+
+.chapter-hero {
+  min-height: 390px;
+  background-color: #171513;
+  background-image: none;
+  border-bottom: 1px solid rgba(182, 154, 99, 0.14);
+}
+
+.chapter-hero-overlay {
+  background: linear-gradient(180deg, rgba(17,16,15,0.28), rgba(17,16,15,0.86));
+}
+
+.chapter-hero-content {
+  width: min(calc(100% - 40px), 900px);
+  padding-top: 145px;
+  padding-bottom: 56px;
+}
+
+.chapter-number,
+.section-kicker,
+.reflection-label {
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+}
+
+.chapter-hero h1,
+.chapter-hero-content h1,
+h1 {
+  color: var(--cream);
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
+  line-height: 1.16;
+  letter-spacing: 0;
+  text-shadow: none;
+}
+
+.chapter-hero h1 span {
+  color: inherit;
+}
+
+.chapter-hero-divider {
+  width: 56px;
+  height: 1px;
+  margin: 22px 0;
+  background: var(--gold);
+}
+
+.chapter-hero-description,
+.chapter-introduction .chapter-hero-description {
+  max-width: 660px;
+  color: var(--cream-soft);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.chapter-content {
+  background: #11100f;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.chapter-reading {
+  width: min(calc(100% - 40px), var(--reading-width));
+  padding-top: 58px;
+  padding-bottom: 68px;
+}
+
+.chapter-reading > p,
+.chapter-introduction .chapter-reading > p,
+.story-text p,
+.section-copy p,
+.chapter-card p,
+.legal-page p {
+  margin-bottom: 1.35em;
+  color: var(--cream-soft);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.12rem;
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: 0;
+}
+
+.chapter-reading .chapter-opening,
+.chapter-reading > p.chapter-opening {
+  margin-bottom: 1.5em;
+  padding-top: 0;
+  border-top: 0;
+  color: var(--cream);
+  font-size: 1.18rem;
+  line-height: 1.85;
+}
+
+.chapter-reading h2,
+.chapter-reading h3,
+.chapter-content h2,
+.chapter-content h3 {
+  margin: 2em 0 0.8em;
+  color: var(--cream);
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.chapter-emphasis,
+.chapter-emphasis-block,
+.chapter-reflection,
+.worshipper-section,
+.chapter-conclusion {
+  background: transparent;
+  box-shadow: none;
+}
+
+.chapter-emphasis-block,
+.chapter-reflection,
+.worshipper-section {
+  margin: 2.2em 0;
+  padding: 1.25em 1.4em;
+  border: 1px solid rgba(182, 154, 99, 0.22);
+  border-left: 2px solid var(--gold);
+}
+
+.chapter-emphasis,
+.chapter-emphasis-block p,
+.chapter-reflection p:last-child,
+.worshipper-line,
+.worshipper-section blockquote p,
+.chapter-conclusion p {
+  color: var(--cream);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  font-style: normal;
+}
+
+.chapter-conclusion {
+  margin-top: 2.5em;
+  padding-top: 1.5em;
+  border-top: 1px solid rgba(182, 154, 99, 0.24);
+}
+
+.button,
+.hero-actions .button {
+  min-height: 46px;
+  border-radius: 2px;
+  box-shadow: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.site-footer {
+  background: #0d0c0b;
+  border-top: 1px solid rgba(182, 154, 99, 0.2);
+}
+
+.site-footer .footer-inner {
+  padding-top: 42px;
+  row-gap: 28px;
+}
+
+.site-footer .footer-title {
+  font-size: 1.55rem;
+}
+
+.site-footer .footer-subtitle,
+.site-footer .footer-links a,
+.site-footer .footer-bottom p {
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.chapter-navigation .book-nav-prev,
+.chapter-navigation .book-nav-next {
+  background: #171513;
+  border: 1px solid rgba(182, 154, 99, 0.22);
+  box-shadow: none;
+}
+
+.chapter-navigation .book-nav-title {
+  color: var(--cream);
+  font-size: 1.18rem;
+  line-height: 1.4;
+}
+
+.chapter-navigation .book-nav-label {
+  color: var(--gold-light);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+.chapter-navigation .book-nav-home {
+  color: var(--cream-soft);
+  border-color: rgba(182, 154, 99, 0.22);
+  box-shadow: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline-color: var(--gold-light);
+  outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+  .site-header .navigation,
+  .homepage-header .navigation {
+    min-height: 70px;
+  }
+
+  .chapter-hero {
+    min-height: 330px;
+  }
+
+  .chapter-hero-content {
+    padding-top: 120px;
+    padding-bottom: 38px;
+  }
+
+  .chapter-hero h1,
+  .chapter-hero-content h1,
+  h1 {
+    font-size: clamp(1.9rem, 8vw, 2.45rem);
+  }
+
+  .chapter-reading {
+    width: calc(100% - 36px);
+    padding-top: 38px;
+    padding-bottom: 46px;
+  }
+
+  .chapter-reading > p,
+  .chapter-introduction .chapter-reading > p,
+  .story-text p,
+  .section-copy p,
+  .chapter-card p,
+  .legal-page p {
+    font-size: 1.06rem;
+    line-height: 1.8;
+  }
+
+  .chapter-reading .chapter-opening,
+  .chapter-reading > p.chapter-opening {
+    font-size: 1.1rem;
+  }
+
+  .chapter-emphasis-block,
+  .chapter-reflection,
+  .worshipper-section {
+    margin: 1.7em 0;
+    padding: 1em;
+  }
+}
+
+@media (prefers-contrast: more) {
+  body,
+  .chapter-reading > p,
+  .chapter-introduction .chapter-reading > p {
+    color: #fff;
+  }
+}
+
