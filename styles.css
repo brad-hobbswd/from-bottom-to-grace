@@ -4759,3 +4759,154 @@ a:focus-visible {
     display: none;
   }
 }
+
+
+/* =========================================================
+   RESPONSIVE HOMEPAGE ALIGNMENT FIX
+   Keep the banner, navigation, and action buttons aligned
+   across desktop, tablet, and mobile layouts.
+   ========================================================= */
+.homepage-header,
+.homepage-header .navigation,
+.hero,
+.hero-actions,
+.hero-actions > .container {
+  width: 100%;
+  max-width: 100%;
+}
+
+.homepage-header .navigation {
+  box-sizing: border-box;
+}
+
+.hero {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1920 / 1000;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.hero .hero-content {
+  display: none;
+}
+
+.hero-actions {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.hero-actions > .container {
+  box-sizing: border-box;
+}
+
+.hero-actions .hero-buttons {
+  width: 100%;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.hero-actions .button {
+  box-sizing: border-box;
+  max-width: 100%;
+  white-space: normal;
+  text-align: center;
+}
+
+@media (min-width: 701px) {
+  .homepage-header .navigation {
+    min-height: 88px;
+    gap: clamp(16px, 3vw, 40px);
+  }
+
+  .homepage-header .site-logo {
+    flex: 0 1 auto;
+    min-width: 0;
+  }
+
+  .homepage-header .main-navigation {
+    flex: 0 1 auto;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: clamp(14px, 2.5vw, 32px);
+  }
+
+  .hero-actions .hero-buttons {
+    flex-direction: row;
+  }
+
+  .hero-actions .button {
+    width: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .homepage-header .navigation {
+    width: calc(100% - 32px);
+    min-height: 64px;
+    margin-inline: auto;
+    padding: 10px 0;
+  }
+
+  .homepage-header .mobile-menu-toggle {
+    margin-left: auto;
+  }
+
+  .homepage-header .main-navigation {
+    left: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hero {
+    width: 100%;
+    aspect-ratio: 1920 / 1000;
+    min-height: 0;
+    background-size: contain;
+    background-position: center top;
+    background-color: #0b0907;
+  }
+
+  .hero-actions {
+    padding: 16px 0 24px;
+  }
+
+  .hero-actions > .container {
+    width: calc(100% - 32px);
+  }
+
+  .hero-actions .hero-buttons {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 390px) {
+  .homepage-header .navigation,
+  .hero-actions > .container {
+    width: calc(100% - 26px);
+  }
+
+  .hero-actions .button {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+}
