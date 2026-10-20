@@ -206,7 +206,7 @@
       .prayer-open-button span { color: var(--gold-light, #e0c27d); font-size: 1.15rem; }
       .prayer-library-reminder { margin: 36px auto 0; padding: 26px 18px; border-top: 1px solid rgba(199,161,90,.25); text-align: center; }
       .prayer-reminder-line { margin: 4px 0; color: var(--cream, #f1eadf); font-family: Georgia, serif; font-size: clamp(1.2rem, 3vw, 1.55rem); }
-      .prayer-dialog { width: min(660px, calc(100% - 28px)); max-width: 660px; max-height: min(82vh, 820px); margin: auto; padding: 0; overflow: auto; border: 1px solid rgba(199,161,90,.5); border-radius: 16px; background: #17120e; color: var(--cream, #f1eadf); box-shadow: 0 24px 90px rgba(0,0,0,.65); }
+      .prayer-dialog { box-sizing: border-box; width: min(660px, calc(100% - 28px)); max-width: 660px; max-height: min(82dvh, 820px); margin: auto; padding: 0; overflow: auto; overscroll-behavior: contain; border: 1px solid rgba(199,161,90,.5); border-radius: 16px; background: #17120e; color: var(--cream, #f1eadf); box-shadow: 0 24px 90px rgba(0,0,0,.65); }
       .prayer-dialog::backdrop { background: rgba(5,4,3,.78); backdrop-filter: blur(4px); }
       .prayer-dialog-inner { position: relative; padding: clamp(26px, 5vw, 44px); }
       .prayer-dialog-close { position: absolute; top: 14px; right: 16px; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(199,161,90,.3); border-radius: 50%; background: transparent; color: var(--cream, #f1eadf); font-size: 1.8rem; line-height: 1; cursor: pointer; }
@@ -214,29 +214,63 @@
       .prayer-dialog-divider { width: 64px; height: 2px; margin-bottom: 24px; background: var(--gold, #c7a15a); }
       .prayer-dialog-text p { margin: 0 0 17px; color: #e4d9ca; font-size: 1rem; line-height: 1.85; }
       .prayer-dialog-text .prayer-amen { margin-top: 24px; color: var(--gold-light, #e0c27d); font-family: Georgia, serif; font-size: 1.15rem; }
-      @media (max-width: 640px) { .prayer-card-grid { grid-template-columns: 1fr; gap: 14px; } .prayer-card { padding: 24px; } .prayer-dialog { max-height: 88vh; } .prayer-dialog-inner { padding: 28px 22px; } .prayer-dialog-close { top: 10px; right: 10px; } }
+      .prayer-dialog.is-fallback-open { display: block; position: fixed; z-index: 1001; top: 50%; left: 50%; transform: translate(-50%, -50%); margin: 0; }
+      body.prayer-modal-fallback::after { content: ""; position: fixed; z-index: 1000; inset: 0; background: rgba(5,4,3,.82); }
+      @media (max-width: 640px) { .prayer-card-grid { grid-template-columns: 1fr; gap: 14px; } .prayer-card { padding: 24px; } .prayer-dialog { width: calc(100% - 24px); max-height: 88vh; max-height: 88dvh; border-radius: 12px; } .prayer-dialog-inner { padding: 28px 22px; } .prayer-dialog-close { top: 10px; right: 10px; } .prayer-dialog h2 { font-size: clamp(1.5rem, 6vw, 2rem); } .prayer-dialog-text p { font-size: 1rem; line-height: 1.75; } }
+      @media (max-width: 360px) { .prayer-card { padding: 20px 18px; } .prayer-dialog-inner { padding: 25px 18px; } .prayer-dialog-close { width: 36px; height: 36px; } }
+      @media (max-height: 520px) and (orientation: landscape) { .prayer-dialog { max-height: 92vh; max-height: 92dvh; } .prayer-dialog-inner { padding-top: 24px; padding-bottom: 24px; } }
     </style>
 
     <script>
       (() => {
         const openButtons = document.querySelectorAll("[data-prayer-open]");
         const dialogs = document.querySelectorAll(".prayer-dialog");
+        const supportsNativeModal = typeof window.HTMLDialogElement !== "undefined" &&
+          typeof window.HTMLDialogElement.prototype.showModal === "function";
+
+        const closePrayer = (dialog) => {
+          if (supportsNativeModal && typeof dialog.close === "function" && dialog.open) {
+            dialog.close();
+          } else {
+            dialog.classList.remove("is-fallback-open");
+            dialog.removeAttribute("open");
+            dialog.removeAttribute("aria-modal");
+            document.body.classList.remove("prayer-modal-fallback");
+          }
+        };
+
         openButtons.forEach((button) => {
           button.addEventListener("click", () => {
             const dialog = document.getElementById(button.getAttribute("data-prayer-open"));
-            if (dialog && typeof dialog.showModal === "function") dialog.showModal();
+            if (!dialog) return;
+            if (supportsNativeModal) {
+              if (!dialog.open) dialog.showModal();
+            } else {
+              dialog.setAttribute("open", "");
+              dialog.setAttribute("aria-modal", "true");
+              dialog.classList.add("is-fallback-open");
+              document.body.classList.add("prayer-modal-fallback");
+              const closeButton = dialog.querySelector("[data-prayer-close]");
+              if (closeButton) closeButton.focus();
+            }
           });
         });
+
         dialogs.forEach((dialog) => {
           dialog.querySelectorAll("[data-prayer-close]").forEach((button) => {
-            button.addEventListener("click", () => dialog.close());
+            button.addEventListener("click", () => closePrayer(dialog));
           });
           dialog.addEventListener("click", (event) => {
-            if (event.target === dialog) dialog.close();
+            if (event.target === dialog) closePrayer(dialog);
           });
         });
+
         document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") dialogs.forEach((dialog) => { if (dialog.open) dialog.close(); });
+          if (event.key === "Escape") {
+            dialogs.forEach((dialog) => {
+              if (dialog.open || dialog.classList.contains("is-fallback-open")) closePrayer(dialog);
+            });
+          }
         });
       })();
     </script>
