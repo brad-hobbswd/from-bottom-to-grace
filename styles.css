@@ -4910,3 +4910,118 @@ a:focus-visible {
     letter-spacing: 0.1em;
   }
 }
+
+
+/* =========================================================
+   READABILITY PASS
+   Improve small supporting text, navigation, and buttons
+   across desktop, tablet, and phone screens.
+   ========================================================= */
+body {
+  font-size: 16px;
+}
+
+p,
+.section-copy p,
+.story-text p,
+.chapter-card p,
+.author-section > div:last-child p {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.section-kicker,
+.chapter-number,
+.highlight-label,
+.footer-resource-title,
+.book-nav-label,
+.chapter-nav-label {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+}
+
+.main-navigation a,
+.site-nav a {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+}
+
+.button {
+  font-size: 0.78rem;
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+}
+
+.footer-links a,
+.footer-bottom p,
+.footer-subtitle,
+.book-nav-home {
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 16px;
+  }
+
+  p,
+  .section-copy p,
+  .story-text p,
+  .chapter-card p,
+  .author-section > div:last-child p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .section-kicker,
+  .chapter-number,
+  .highlight-label,
+  .footer-resource-title,
+  .book-nav-label,
+  .chapter-nav-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+  }
+
+  .main-navigation a {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+  }
+
+  .button,
+  .hero-actions .button {
+    font-size: 0.76rem;
+    letter-spacing: 0.07em;
+  }
+
+  .footer-links a,
+  .footer-bottom p,
+  .footer-subtitle,
+  .book-nav-home {
+    font-size: 0.82rem;
+  }
+
+  .chapter-nav-title,
+  .book-nav-title {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 390px) {
+  .main-navigation a {
+    font-size: 0.82rem;
+  }
+
+  .button,
+  .hero-actions .button {
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links a,
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+}
