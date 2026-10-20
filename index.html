@@ -185,12 +185,13 @@
       width: 100%;
       height: auto;
       min-height: 0;
-      aspect-ratio: 1536 / 1024;
+      aspect-ratio: 1920 / 1000;
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background-size: 100% 100%;
-      background-position: center;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
     }
     .hero-actions {
       margin: 0;
@@ -247,7 +248,11 @@
         width: calc(100% - 32px);
       }
       .homepage-header .navigation { min-height: 64px; }
-      .hero { aspect-ratio: 3 / 2; }
+      .hero {
+        aspect-ratio: 1920 / 1000;
+        background-size: cover;
+        background-position: center center;
+      }
       .hero-actions { padding: 16px 0 22px; }
       .hero-actions .hero-buttons { display: grid; grid-template-columns: 1fr; }
       .hero-actions .button { width: 100%; }
