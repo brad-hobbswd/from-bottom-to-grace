@@ -13,6 +13,141 @@
   <title>From the Bottom to Grace | Bradley Hobbs</title>
 
   <link rel="stylesheet" href="styles.css?v=20261020-2">
+
+  <style id="homepage-layout-readability-fix">
+    /* Homepage-specific fallback styles to ensure alignment and readability. */
+    .homepage-header { position: relative; width: 100%; }
+    .homepage-header .navigation {
+      width: min(calc(100% - 48px), 1180px);
+      min-height: 88px;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .homepage-header .site-logo { flex: 0 1 auto; min-width: 0; }
+    .homepage-header .main-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: clamp(12px, 2vw, 28px);
+    }
+    .homepage-header .main-navigation a {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      letter-spacing: 0.08em;
+    }
+    .hero {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 1536 / 1024;
+      min-height: 0;
+      margin: 0;
+      background-size: contain;
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-color: #0b0907;
+    }
+    .hero .hero-content { display: none; }
+    .hero-actions { width: 100%; margin: 0; padding: 20px 0 28px; }
+    .hero-actions > .container { width: min(calc(100% - 48px), 1180px); margin-inline: auto; }
+    .hero-actions .hero-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .hero-actions .button {
+      min-height: 48px;
+      padding: 12px 20px;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      letter-spacing: 0.07em;
+      text-align: center;
+    }
+    .section-kicker, .chapter-number, .footer-resource-title {
+      font-size: 0.75rem;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+    }
+    .story-text p, .section-copy p, .chapter-card p,
+    .author-section > div:last-child p {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+    @media (max-width: 900px) {
+      .homepage-header .navigation {
+        width: calc(100% - 36px);
+        gap: 16px;
+      }
+      .homepage-header .main-navigation { gap: 12px; }
+      .homepage-header .main-navigation a {
+        font-size: 0.75rem;
+        letter-spacing: 0.04em;
+      }
+      .story-introduction, .two-column, .author-section {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+      }
+      .chapter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 700px) {
+      .homepage-header .navigation {
+        width: calc(100% - 32px);
+        min-height: 64px;
+        justify-content: flex-end;
+        padding: 10px 0;
+      }
+      .homepage-header .site-logo { display: none; }
+      .homepage-header .mobile-menu-toggle { display: flex; margin-left: auto; }
+      .homepage-header .main-navigation {
+        position: absolute;
+        top: calc(100% - 1px);
+        left: 0;
+        right: 0;
+        z-index: 1001;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px;
+        background: rgba(13, 11, 9, 0.98);
+        border: 1px solid rgba(199, 161, 90, 0.3);
+      }
+      .homepage-header .main-navigation.is-open { display: flex; }
+      .homepage-header .main-navigation a {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+      }
+      .hero {
+        width: 100%;
+        aspect-ratio: 1536 / 1024;
+        background-size: contain;
+      }
+      .hero-actions { padding: 14px 0 22px; }
+      .hero-actions > .container { width: calc(100% - 32px); }
+      .hero-actions .hero-buttons {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+      }
+      .hero-actions .button {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 16px;
+        font-size: 0.78rem;
+      }
+      .chapter-grid { grid-template-columns: minmax(0, 1fr); }
+      .section { padding: 76px 0; }
+      .story-text p, .section-copy p, .chapter-card p,
+      .author-section > div:last-child p { font-size: 1rem; line-height: 1.8; }
+    }
+    @media (min-width: 701px) {
+      .homepage-header .main-navigation { display: flex; }
+    }
+  </style>
 </head>
 
 <body>
