@@ -1,93 +1,32 @@
 # From the Bottom to Grace
 
-**A Story of Addiction, Redemption, and Unconditional Love**
+**From the Bottom to Grace** by Bradley Hobbs is a personal story of addiction, surrender, redemption, faith, and unconditional love. It follows a woman as she is remembered before the struggle, the ways addiction became captivity, and the faith and grace she discovered along the way.
 
-Written by **Bradley Hobbs**
-
-## About the Book
-
-*From the Bottom to Grace* is a deeply personal story of addiction, redemption, faith, surrender, and unconditional love.
-
-The story follows a woman seen not only through the struggle of addiction, but through the person she was before it, the captivity she experienced, and the faith and grace she discovered along the way.
-
-At its heart is a simple truth:
-
-> She did not stop being a worshipper. She found the One worthy of her worship.
-
-## Website
-
-The official website for the project is:
+## Live Website
 
 https://brad-hobbswd.github.io/from-bottom-to-grace/
 
-The website includes:
+## Website Contents
 
-- The story introduction
-- Three chapters
-- Faith and redemption material
-- About the author
-- Preface
-- Dedication
-- Publication information
-- Acknowledgments
+- Story introduction and three chapters
+- Preface, dedication, and acknowledgments
 - Prayer Room
-- Contact information
-- Privacy Policy
-- Terms of Use
-- Copyright information
+- Publication information
+- Author information and contact
+- Privacy, terms, and copyright pages
 
-## Chapters
+## Technology
 
-### Chapter One
-**The Girl I Knew Before the Struggle**
+This is a static website built with HTML, CSS, and JavaScript and hosted with GitHub Pages.
 
-A look at the person before addiction became part of her story.
-
-### Chapter Two
-**When Surrender Became Captivity**
-
-The chapter where something that promised relief became something that controlled her.
-
-### Chapter Three
-**The God She Finally Found**
-
-A journey from searching toward a faith that became personal.
-
-## Author
-
-**Bradley Hobbs**
-
-Bradley Hobbs writes about faith, redemption, healing, and stories that remind us that grace can reach places people sometimes believe are beyond redemption.
-
-## Project Structure
-
-The site is a static HTML and CSS website hosted through GitHub Pages.
-
-Primary files include:
-
-- `index.html` — homepage
-- `chapter-1.html` — Chapter One
-- `chapter-2.html` — Chapter Two
-- `chapter-3.html` — Chapter Three
-- `author.html` — author page
-- `preface.html` — preface
-- `dedication.html` — dedication
-- `publication.html` — publication information
-- `acknowledgments.html` — acknowledgments
-- `prayer-room.html` — prayer room
-- `contact.html` — contact page
-- `privacy.html` — privacy policy
-- `terms.html` — terms of use
-- `copyright.html` — copyright information
-- `404.html` — custom error page
-- `styles.css` — site-wide styling
-- `site.js` — mobile navigation behavior
-- `sitemap.xml` — search engine sitemap
-- `robots.txt` — crawler instructions
-
-## Copyright
+## Copyright and Permissions
 
 Copyright © 2026 Bradley Hobbs. All rights reserved.
 
-The written content, story, artwork, design, and original material associated with *From the Bottom to Grace* may not be reproduced, republished, or distributed without appropriate permission, except as permitted by applicable law.
+Original writing, story content, website copy, original graphics, design, and source code are protected by the accompanying [LICENSE](LICENSE). Reproduction, republication, redistribution, modification, or commercial use requires prior written permission, except where applicable law permits otherwise. Third-party materials remain subject to their respective owners' terms.
+
+## Search Engine Files
+
+- [Sitemap](sitemap.xml)
+- [Crawler instructions](robots.txt)
 
